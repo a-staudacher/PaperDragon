@@ -65,10 +65,6 @@ public class Chat implements java.io.Serializable {
 		this.date = date;
 	}
 
-	public Chat() {
-		
-	}
-
 	public User getUser() {
 		return user;
 	}
@@ -84,7 +80,11 @@ public class Chat implements java.io.Serializable {
 	public void setGamesession(GameSession gamesession) {
 		this.gameSession = gamesession;
 	}
-
+	
+	public Chat() {
+		
+	}
+	
 	public Chat(User user, GameSession gameSession, String text, Date date) {
 		super();
 		this.user = user;

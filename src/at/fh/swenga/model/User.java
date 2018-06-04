@@ -69,6 +69,9 @@ public class User implements java.io.Serializable {
 	
     @OneToMany(mappedBy="user", fetch=FetchType.LAZY)
     private Set<Chat> chatLines;
+    
+    @OneToMany(mappedBy="users", fetch=FetchType.LAZY)
+    private Set<Post> posts;
  
 	public User() {
 	}
@@ -82,10 +85,12 @@ public class User implements java.io.Serializable {
 	
 
 
+
+
 	public User(AccountStatus accountStatus, AdventureGroup group, GameSession gameSession, String userName,
 			String password, boolean enabled, Set<UserRole> userRoles, Set<FriendModel> friends1,
 			Set<FriendModel> friends2, Set<BlockModel> block1, Set<BlockModel> blockedUsers, DocumentModel picture,
-			Character character, Set<Chat> chatLines) {
+			Character character, Set<Chat> chatLines, Set<Post> posts) {
 		super();
 		this.accountStatus = accountStatus;
 		this.group = group;
@@ -101,6 +106,15 @@ public class User implements java.io.Serializable {
 		this.picture = picture;
 		this.character = character;
 		this.chatLines = chatLines;
+		this.posts = posts;
+	}
+
+	public Set<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(Set<Post> posts) {
+		this.posts = posts;
 	}
 
 	public int getId() {

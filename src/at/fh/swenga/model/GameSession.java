@@ -32,6 +32,13 @@ public class GameSession implements java.io.Serializable {
 	@Column(nullable = false)
 	private String name;
 	
+	@Column(nullable = false)
+	private String lore;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private DocumentModel picture;
+	
+	
     @OneToMany(mappedBy="gameSession", fetch=FetchType.LAZY)
     private Set<Chat> chatLines;
     
@@ -70,16 +77,39 @@ public class GameSession implements java.io.Serializable {
 		this.users = users;
 	}
     
-    public GameSession() {
+    public String getLore() {
+		return lore;
+	}
+
+	public void setLore(String lore) {
+		this.lore = lore;
+	}
+	
+	
+
+	public DocumentModel getPicture() {
+		return picture;
+	}
+
+	public void setPicture(DocumentModel picture) {
+		this.picture = picture;
+	}
+
+	public GameSession() {
     }
 
-	public GameSession(String name, Set<Chat> chatLines, Set<User> users) {
+	public GameSession(String name, String lore, DocumentModel picture, Set<Chat> chatLines, Set<User> users) {
 		super();
 		this.name = name;
+		this.lore = lore;
+		this.picture = picture;
 		this.chatLines = chatLines;
 		this.users = users;
 	}
-    
+
+
+
+
     
 
 
