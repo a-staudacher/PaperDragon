@@ -1,4 +1,4 @@
 # PaperDragon
 FH Joannum SWENGA Project
 
-Gartner push 1
+change db.properties to your login credentials
