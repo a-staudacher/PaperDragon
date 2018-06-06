@@ -33,6 +33,9 @@ public class User implements java.io.Serializable {
 	
 	@ManyToOne (cascade = CascadeType.PERSIST)
 	private AdventureGroup group;
+	
+	@ManyToOne (cascade = CascadeType.PERSIST)
+	private GameSession gameSession;
  
 	@Column(name = "username", unique = true, nullable = false, length = 45)
 	private String userName;
@@ -63,6 +66,12 @@ public class User implements java.io.Serializable {
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private Character character;
+	
+    @OneToMany(mappedBy="user", fetch=FetchType.LAZY)
+    private Set<Chat> chatLines;
+    
+    @OneToMany(mappedBy="users", fetch=FetchType.LAZY)
+    private Set<Post> posts;
  
 	public User() {
 	}
@@ -72,13 +81,15 @@ public class User implements java.io.Serializable {
 		this.password = password;
 		this.enabled = enabled;
 	} 
- 
-	public User(AccountStatus accountStatus, AdventureGroup group, String userName, String password, boolean enabled,
-			Set<UserRole> userRoles, Set<FriendModel> friends1, Set<FriendModel> friends2, Set<BlockModel> block1,
-			Set<BlockModel> blockedUsers, DocumentModel picture, Character character) {
+
+	public User(AccountStatus accountStatus, AdventureGroup group, GameSession gameSession, String userName,
+			String password, boolean enabled, Set<UserRole> userRoles, Set<FriendModel> friends1,
+			Set<FriendModel> friends2, Set<BlockModel> block1, Set<BlockModel> blockedUsers, DocumentModel picture,
+			Character character, Set<Chat> chatLines, Set<Post> posts) {
 		super();
 		this.accountStatus = accountStatus;
 		this.group = group;
+		this.gameSession = gameSession;
 		this.userName = userName;
 		this.password = password;
 		this.enabled = enabled;
@@ -89,6 +100,16 @@ public class User implements java.io.Serializable {
 		this.blockedUsers = blockedUsers;
 		this.picture = picture;
 		this.character = character;
+		this.chatLines = chatLines;
+		this.posts = posts;
+	}
+
+	public Set<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(Set<Post> posts) {
+		this.posts = posts;
 	}
 
 	public int getId() {
@@ -216,5 +237,23 @@ public class User implements java.io.Serializable {
 	public void setCharacter(Character character) {
 		this.character = character;
 	}
+
+	public GameSession getGameSession() {
+		return gameSession;
+	}
+
+	public void setGameSession(GameSession gameSession) {
+		this.gameSession = gameSession;
+	}
+
+	public Set<Chat> getChatLines() {
+		return chatLines;
+	}
+
+	public void setChatLines(Set<Chat> chatLines) {
+		this.chatLines = chatLines;
+	}
+	
+	
  
 }
