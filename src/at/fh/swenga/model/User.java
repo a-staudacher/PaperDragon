@@ -73,11 +73,10 @@ public class User implements java.io.Serializable {
 		this.enabled = enabled;
 	} 
  
-	public User(int id, AccountStatus accountStatus, AdventureGroup group, String userName, String password, boolean enabled,
+	public User(AccountStatus accountStatus, AdventureGroup group, String userName, String password, boolean enabled,
 			Set<UserRole> userRoles, Set<FriendModel> friends1, Set<FriendModel> friends2, Set<BlockModel> block1,
 			Set<BlockModel> blockedUsers, DocumentModel picture, Character character) {
 		super();
-		this.id = id;
 		this.accountStatus = accountStatus;
 		this.group = group;
 		this.userName = userName;
