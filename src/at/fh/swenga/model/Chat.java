@@ -38,7 +38,7 @@ public class Chat implements java.io.Serializable {
 	@Column(nullable = false)
 	private String text;
 	
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date date;
 
 	public int getId() {

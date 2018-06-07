@@ -35,9 +35,6 @@ public class ItemBaseModel implements java.io.Serializable {
     private Set<ItemModel> items;
 	
 	@Column(nullable = false)
-	private int lvlRequirement;
-	
-	@Column(nullable = false)
 	private int strength;
 
 	@Column(nullable = false)
@@ -69,14 +66,13 @@ public class ItemBaseModel implements java.io.Serializable {
 	
 	public ItemBaseModel() {}
 
-	public ItemBaseModel(String name, String text, Set<ItemModel> items, int lvlRequirement, int strength,
+	public ItemBaseModel(String name, String text, Set<ItemModel> items, int strength,
 			int dexterity, int inteligenz, int constitution, int vitality, int wisdom, int charisma, int price,
 			Rarity rarity, ItemType itemType) {
 		super();
 		this.name = name;
 		this.text = text;
 		this.items = items;
-		this.lvlRequirement = lvlRequirement;
 		this.strength = strength;
 		this.dexterity = dexterity;
 		this.inteligenz = inteligenz;
@@ -119,14 +115,6 @@ public class ItemBaseModel implements java.io.Serializable {
 
 	public void setItems(Set<ItemModel> items) {
 		this.items = items;
-	}
-
-	public int getLvlRequirement() {
-		return lvlRequirement;
-	}
-
-	public void setLvlRequirement(int lvlRequirement) {
-		this.lvlRequirement = lvlRequirement;
 	}
 
 	public int getStrength() {

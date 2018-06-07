@@ -40,6 +40,9 @@ public class Post implements java.io.Serializable {
 
 	@ManyToOne (cascade = CascadeType.PERSIST)
 	private Threat threats;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date date;
 
 	public int getId() {
 		return id;
@@ -80,19 +83,28 @@ public class Post implements java.io.Serializable {
 	public void setThreats(Threat threats) {
 		this.threats = threats;
 	}
-	
     
-    public Post() {
+    public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public Post() {
     	
     }
 
-	public Post(String text, int number, User users, Threat threats) {
+	public Post(String text, int number, User users, Threat threats, Date date) {
 		super();
 		this.text = text;
 		this.number = number;
 		this.users = users;
 		this.threats = threats;
+		this.date = date;
 	}
+
 
     
 
