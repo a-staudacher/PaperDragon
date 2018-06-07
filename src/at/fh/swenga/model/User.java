@@ -45,7 +45,10 @@ public class User implements java.io.Serializable {
  
 	@Column(name = "enabled", nullable = false)
 	private boolean enabled;
- 
+
+	@Column(nullable = false)
+	private boolean gameAccepted;
+	
 	@ManyToMany(fetch=FetchType.LAZY,cascade=CascadeType.PERSIST)
 	private Set<UserRole> userRoles;
 	
@@ -83,7 +86,7 @@ public class User implements java.io.Serializable {
 	} 
 
 	public User(AccountStatus accountStatus, AdventureGroup group, GameSession gameSession, String userName,
-			String password, boolean enabled, Set<UserRole> userRoles, Set<FriendModel> friends1,
+			String password, boolean enabled, boolean gameAccepted, Set<UserRole> userRoles, Set<FriendModel> friends1,
 			Set<FriendModel> friends2, Set<BlockModel> block1, Set<BlockModel> blockedUsers, DocumentModel picture,
 			Character character, Set<Chat> chatLines, Set<Post> posts) {
 		super();
@@ -93,6 +96,7 @@ public class User implements java.io.Serializable {
 		this.userName = userName;
 		this.password = password;
 		this.enabled = enabled;
+		this.gameAccepted = gameAccepted;
 		this.userRoles = userRoles;
 		this.friends1 = friends1;
 		this.friends2 = friends2;
@@ -163,7 +167,7 @@ public class User implements java.io.Serializable {
 
 	public void addFriend(User user) {
 		if (friends1==null) friends1 = new HashSet<FriendModel>();
-		friends1.add(new FriendModel(this, user));
+		friends1.add(new FriendModel(this, user, false));
 		//todo: persist FriendModel
 	}
 
@@ -252,6 +256,14 @@ public class User implements java.io.Serializable {
 
 	public void setChatLines(Set<Chat> chatLines) {
 		this.chatLines = chatLines;
+	}
+
+	public boolean isGameAccepted() {
+		return gameAccepted;
+	}
+
+	public void setGameAccepted(boolean gameAccepted) {
+		this.gameAccepted = gameAccepted;
 	}
 	
 	

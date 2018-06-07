@@ -69,6 +69,10 @@
 		<property name="templateEngine" ref="templateEngine" />
 	</bean>
 
+	<!-- to use /id/ or id as param in a url and get the responding object in the controller directly without lookup
+	<bean class="org.springframework.data.web.config.SpringDataWebConfiguration"/>  
+	-->
+
 	<bean
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
 		id="entityManagerFactory">
