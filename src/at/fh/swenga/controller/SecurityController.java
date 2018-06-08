@@ -72,6 +72,20 @@ public class SecurityController {
 	public String handleLogin() {
 		return "login";
 	}
+	
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public String registerPage() {
+		
+		return "register"; //register.html
+	}
+	
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public String registerPost() { //registerPost(@Param string Usernamem, ...)
+		
+		//create new user
+		// userRepository.save(user)
+		return "login"; // meldung erfolgreich? oder direkt zur login page?
+	}
  
 	@ExceptionHandler(Exception.class)
 	public String handleAllException(Exception ex) {
