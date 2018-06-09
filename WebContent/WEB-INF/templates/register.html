@@ -45,13 +45,29 @@ xmlns="http://www.w3.org/1999/xhtml"
 			
 				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178">
 					<span class="login100-form-title">
-						Please Sign In
+						New Account
 					</span>
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
 						<label for="inputEmail" class="sr-only">Email address</label>
 						<input class="input100" id="username" type="text" placeholder="Username" required autofocus name="username">
 						<span class="focus-input100"></span>
+					</div>
+					
+					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter charactername">
+						<input class="input100" id="charactername" type="text" placeholder="Charactername" required autofocus name="charactername">
+						<span class="focus-input100"></span>
+					</div>
+					
+					<div class="text-center validate-input p-t-13 p-b-23" data-validate="Please choose a Gender">
+						<label class="txt1" style="margin-right:2em">Gender:</label>
+						
+						<span style="font-size: 20pt"><i class="fa fa-venus fa-lg" aria-hidden="true"></i></span>
+						<input type="radio" name="gender" id="female" style="margin-right:2em">
+						
+						<span style="font-size: 20pt"><i class="fa fa-mars fa-lg" aria-hidden="true"></i></span>
+						<input type="radio" name="gender" id="male">
+						
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Please enter password">
@@ -62,50 +78,28 @@ xmlns="http://www.w3.org/1999/xhtml"
 
 					<div class="text-right p-t-13 p-b-23">
 						<span class="txt1">
-							Forgot
+							Choose password
 						</span>
 
-						<a href="#" id="myBtn"class="txt2">
-							Username / Password?
+						<a class="txt2">
+							wisely!
 						</a>
-						
-						<div id="myModal" class="modal">
-
-					  <!-- Modal content -->
-					  <div class="modal-content">
-						<span class="close">&times;</span>
-						<p>DONT FORGET YOUR PASSWORD!</p>
-						<p>Let that be a lesson to you.</p>
-					  </div>
-
-						</div>
-						
-						
-						
 					</div>
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
-							Sign in
+							Create Account
 						</button>
 					</div>
 					
-					<div class="text-right p-t-13 p-b-23">	
-					</div>
-					
-					<div th:if="${param.error}" class="alert alert-danger">Invalid username and password.</div>
-					
-					<div th:if="${param.logout}" class="alert alert-success">You have been logged out.</div>
-
 					<div class="flex-col-c p-t-170 p-b-40">
-						<span class="txt1 p-b-9">
-							Don&apos;t have an account?
-						</span>
-
-						<a th:href="@{/register}" class="txt3">
-							Sign up now
+					
+					<a th:href="@{/login}" class="txt2">
+							Go Back
 						</a>
 					</div>
+					
+	
 				</form>
 			</div>
 			
@@ -114,7 +108,7 @@ xmlns="http://www.w3.org/1999/xhtml"
 		
 	<!-- include the footer Login Page fragment-->
 	<div th:replace="~{includes/footer :: footerLoginPage}"></div>
-	
+		
 		
 		
 	</div>	
