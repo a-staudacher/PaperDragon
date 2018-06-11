@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	>
+<head>
+<div th:replace="~{includes/bootstrap :: bootstrapMeta}" />
+<title>PaperDragon</title>
+<div th:replace="~{includes/bootstrap :: bootstrapCSS}" />
+</head>
+<body>
+	<div class="container" role="main">
+
+		<!--  Error message ----------------------------------------------------------- -->
+		<div th:unless="${errorMessage} == null" th:utext="${errorMessage}"
+			class="alert alert-danger" role="alert"></div>
+		<!--  Error message ----------------------------------------------------------- -->
+
+		<!--  Warning message ----------------------------------------------------------- -->
+		<div th:unless="${warningMessage} == null" th:utext="${warningMessage}"
+			class="alert alert-warning" role="warning"></div>
+		<!--  Warning message ----------------------------------------------------------- -->
+
+		<!--   message ----------------------------------------------------------- -->
+		<div th:unless="${message} == null" th:utext="${message}"
+			class="alert alert-success" role="warning"></div>
+		<!--   message ----------------------------------------------------------- -->
+
+		<nav th:replace="~{includes/searchNav :: search}"></nav>
+
+		<!--  1 simple button ----------------------------------------------------------- -->
+		<div class="row">
+		</div>
+		<!--  1 simple button ----------------------------------------------------------- -->
+
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				Dummy Text		
+				<a href="./character">Characterpage</a>
+					
+			</div>
+		</div>
+		
+	</div>
+	<!--  End of container -->
+	<div th:replace="~{includes/bootstrap :: bootstrapJS}" />
+</body>
+</html>
