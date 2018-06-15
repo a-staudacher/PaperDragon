@@ -15,6 +15,7 @@
 		<intercept-url pattern="/fillUsers" access="permitAll" />
 		<intercept-url pattern="/resource/**" access="permitAll" />
 		<intercept-url pattern="/register" access="permitAll" />
+		<intercept-url pattern="/index" access="permitAll" />
 	
 	
 		<!-- intercept-url pattern="/**" access="hasRole('USER')" / -->
