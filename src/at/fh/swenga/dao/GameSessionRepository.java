@@ -10,5 +10,5 @@ import at.fh.swenga.model.GameSession;
 @Repository
 @Transactional
 public interface GameSessionRepository extends JpaRepository<GameSession, Integer> {
-	
+	GameSession findByName(String name);
 }
