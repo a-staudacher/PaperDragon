@@ -11,4 +11,5 @@ import at.fh.swenga.model.Character;
 @Transactional
 public interface CharacterRepository extends JpaRepository<Character, Integer> {
 	
+	Character findByUserUserName(String userName);
 }
