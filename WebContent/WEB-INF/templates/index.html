@@ -22,6 +22,7 @@
 
     <!-- SB Admin CSS - Include with every page -->
     <link href="resource/css/sb-admin.css" rel="stylesheet">
+	
 
 </head>
 
@@ -287,7 +288,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <br>
-                    <h1 class="page-header">Dashboard</h1>
+                    <h1 class="page-header">Main</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -296,7 +297,7 @@
                 <div class="col-lg-8">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Character Info
                             <div class="pull-right">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -317,16 +318,112 @@
                                 </div>
                             </div>
                         </div>
+						
+						
+						
+	
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div id="morris-area-chart" style="position: relative;"><svg height="382" version="1.1" width="757" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs></svg></div>
+
+
+							
+                            <div id="morris-area-chart" style="position: relative;"><svg height="382" version="1.1" width="757" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative;">
+							
+							
+							
+							
+									
+													   
+													<div class="box box-info">
+														
+															<div class="box-body">
+																	 <div class="col-sm-6">
+																	 <div  align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive"> 
+																
+																<input id="profile-image-upload" class="hidden" type="file">
+												<div style="color:#999;" >click here to change profile image</div>
+																<!--Upload Image Js And Css-->
+																  
+																	 </div>
+															  <br>
+														</div>
+													</div> 
+													</div>
+													
+													
+													
+													
+								
+																		<div class="col-sm-6">
+																		<h4 style="color:#00b1b1;">Character Name </h4></span>
+																		  <span><p>Aspirant</p></span>            
+																		</div>
+																		<div class="clearfix"></div>
+																		<hr style="margin:5px 0 5px 0;">
+																
+																		  
+															<div class="col-sm-5 col-xs-6 tital " >First Name:</div><div class="col-sm-7 col-xs-6 ">Prasad</div>
+																 <div class="clearfix"></div>
+															<div class="bot-border"></div>
+
+															<div class="col-sm-5 col-xs-6 tital " >Middle Name:</div><div class="col-sm-7"> Shankar</div>
+															  <div class="clearfix"></div>
+															<div class="bot-border"></div>
+
+															<div class="col-sm-5 col-xs-6 tital " >Last Name:</div><div class="col-sm-7"> Huddedar</div>
+															  <div class="clearfix"></div>
+															<div class="bot-border"></div>
+
+															<div class="col-sm-5 col-xs-6 tital " >Date Of Joining:</div><div class="col-sm-7">15 Jun 2016</div>
+
+															  <div class="clearfix"></div>
+															<div class="bot-border"></div>
+
+															<div class="col-sm-5 col-xs-6 tital " >Date Of Birth:</div><div class="col-sm-7">11 Jun 1998</div>
+
+															  <div class="clearfix"></div>
+															<div class="bot-border"></div>
+
+															<div class="col-sm-5 col-xs-6 tital " >Place Of Birth:</div><div class="col-sm-7">Shirdi</div>
+
+															 <div class="clearfix"></div>
+															<div class="bot-border"></div>
+
+															<div class="col-sm-5 col-xs-6 tital " >Nationality:</div><div class="col-sm-7">Indian</div>
+
+															 <div class="clearfix"></div>
+															<div class="bot-border"></div>
+
+															<div class="col-sm-5 col-xs-6 tital " >Relition:</div><div class="col-sm-7">Hindu</div>
+													
+													
+												 
+													<script>
+															  $(function() {
+													$('#profile-image1').on('click', function() {
+														$('#profile-image-upload').click();
+													});
+												});       
+												</script> 
+
+												  
+												
+							
+							
+							<desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs></svg></div>
+							
+	
+							
                         </div>
                         <!-- /.panel-body -->
+						
+				
+	
                     </div>
                     <!-- /.panel -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Gamesession
                             <div class="pull-right">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -356,59 +453,34 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Date</th>
-                                                    <th>Time</th>
-                                                    <th>Amount</th>
+                                                    <th>Name of Gamesession</th>
+                                                    <th>Friends Online</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>3326</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:29 PM</td>
-                                                    <td>$321.33</td>
+                                                    <td>1</td>
+                                                    <td>KingKong</td>
+                                                    <td>5</td>
+                                                 
                                                 </tr>
                                                 <tr>
-                                                    <td>3325</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:20 PM</td>
-                                                    <td>$234.34</td>
+                                                    <td>2</td>
+                                                    <td>Supersmash</td>
+                                                    <td>10</td>
+                                               
                                                 </tr>
                                                 <tr>
-                                                    <td>3324</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:03 PM</td>
-                                                    <td>$724.17</td>
+                                                    <td>3</td>
+                                                    <td>Path of Exile</td>
+                                                    <td>0</td>
+                                               
                                                 </tr>
                                                 <tr>
-                                                    <td>3323</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:00 PM</td>
-                                                    <td>$23.71</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3322</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>2:49 PM</td>
-                                                    <td>$8345.23</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3321</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>2:23 PM</td>
-                                                    <td>$245.12</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3320</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>2:15 PM</td>
-                                                    <td>$5663.54</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3319</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>2:13 PM</td>
-                                                    <td>$943.45</td>
+                                                    <td>4</td>
+                                                    <td>Overwatch</td>
+                                                    <td>0</td>
+                                                   
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -444,7 +516,7 @@
                 <div class="col-lg-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bell fa-fw"></i> Notifications Panel
+                            <i class="fa fa-bell fa-fw"></i> Notifications Center
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -502,7 +574,7 @@
                     <div class="chat-panel panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-comments fa-fw"></i>
-                            Chat
+                            Chat Center
                             <div class="btn-group pull-right">
                                 <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-chevron-down"></i>
