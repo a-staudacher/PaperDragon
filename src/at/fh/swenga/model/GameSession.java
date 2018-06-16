@@ -29,17 +29,17 @@ public class GameSession implements java.io.Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Column(nullable = false)
+	@Column
 	private String name;
 	
-	@Column(nullable = false)
+	@Column
 	private String lore;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private DocumentModel picture;
 	
 	
-    @OneToMany(mappedBy="gameSession", fetch=FetchType.LAZY)
+    @OneToMany(mappedBy="gameSession", fetch=FetchType.EAGER)
     private Set<Chat> chatLines;
     
     @OneToMany(mappedBy="gameSession", fetch=FetchType.LAZY)
@@ -51,6 +51,13 @@ public class GameSession implements java.io.Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public GameSession(String name, String lore, DocumentModel picture) {
+		super();
+		this.name = name;
+		this.lore = lore;
+		this.picture = picture;
 	}
 
 	public String getName() {

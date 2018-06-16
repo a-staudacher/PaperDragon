@@ -34,7 +34,7 @@ public class User implements java.io.Serializable {
 	@ManyToOne (cascade = CascadeType.PERSIST)
 	private AdventureGroup group;
 	
-	@ManyToOne (cascade = CascadeType.PERSIST)
+	@ManyToOne
 	private GameSession gameSession;
  
 	@Column(name = "username", unique = true, nullable = false, length = 45)
@@ -67,7 +67,7 @@ public class User implements java.io.Serializable {
 	@OneToOne(cascade = CascadeType.ALL)
 	private DocumentModel picture;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(mappedBy="user",cascade = CascadeType.ALL)
 	private Character character;
 	
     @OneToMany(mappedBy="user", fetch=FetchType.LAZY)

@@ -57,11 +57,15 @@ public class Character implements java.io.Serializable {
     @OneToMany(mappedBy="character", fetch=FetchType.LAZY)
     private Set<ItemModel> items;
     
+    @OneToOne(cascade = CascadeType.ALL)
+    User user;
+    
     public Character() {}
+
 
 	public Character(String name, String history, Integer strength, Integer intelligenz, Integer dexterity,
 			Integer constitution, Integer vitality, Integer wisdom, Integer charisma, String gender,
-			Set<ItemModel> items) {
+			Set<ItemModel> items, User user) {
 		super();
 		this.name = name;
 		this.history = history;
@@ -74,7 +78,10 @@ public class Character implements java.io.Serializable {
 		this.charisma = charisma;
 		this.gender = gender;
 		this.items = items;
+		this.user = user;
 	}
+
+
 
 	public int getId() {
 		return id;
@@ -170,6 +177,16 @@ public class Character implements java.io.Serializable {
 
 	public void setItems(Set<ItemModel> items) {
 		this.items = items;
+	}
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
 	}
     
     

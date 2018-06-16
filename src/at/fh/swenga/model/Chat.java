@@ -29,10 +29,10 @@ public class Chat implements java.io.Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@ManyToOne (cascade = CascadeType.PERSIST)
+	@ManyToOne
 	private User user;
 	
-	@ManyToOne (cascade = CascadeType.PERSIST)
+	@ManyToOne
 	private GameSession gameSession;
 	    
 	@Column(nullable = false)
@@ -92,6 +92,18 @@ public class Chat implements java.io.Serializable {
 		this.text = text;
 		this.date = date;
 	}
+
+	public Chat(String text, Date date) {
+		super();
+		this.text = text;
+		this.date = date;
+	}
+
+	public Chat(String text) {
+		super();
+		this.text = text;
+	}
+	
 	
 
 	

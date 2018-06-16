@@ -1,23 +1,67 @@
 package at.fh.swenga.controller;
  
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import at.fh.swenga.dao.BlockModelRepository;
+import at.fh.swenga.dao.CharacterRepository;
+import at.fh.swenga.dao.FriendModelRepository;
+import at.fh.swenga.dao.UserRepository;
+import at.fh.swenga.model.BlockModel;
+import at.fh.swenga.model.Character;
+import at.fh.swenga.model.FriendModel;
  
 @Controller
 public class CharacterController {
 		
-	@RequestMapping(value = "/character")
+	@Autowired
+	CharacterRepository characterRepository;
+	
+	@Autowired
+	FriendModelRepository friendModelRepository;
+	
+	@Autowired
+	BlockModelRepository blockModelRepository;
+	
+	@Autowired
+	UserRepository userRepository;
+	
+	
+	@RequestMapping(value = "/character",method = RequestMethod.GET)
 	public String characterPage(Model model, Authentication authentication) {
-		model.addAttribute("user",authentication.getName());
+		String userName = authentication.getName();
+		Character character = characterRepository.findByUserUserName(userName);
+		
+		model.addAttribute("user",userRepository.findUser(userName));
+		model.addAttribute("character",character);
+		//characterRepository;
+		
+		return "characterpage";
+	}
+	
+	@RequestMapping(value = "/character",method = RequestMethod.POST)
+	public String editCharacter(Model model, Authentication authentication) {
+		//todo: finish this or add Parameters to get.
 		return "characterpage";
 	}
 	
 	@RequestMapping(value = "/contacts")
 	public String contacts(Model model, Authentication authentication) {
-		model.addAttribute("user",authentication.getName());
+		String userName = authentication.getName();
+		List<FriendModel> friends = friendModelRepository.findByFriend1UserName(userName);
+		List<BlockModel> blocks = blockModelRepository.findByUserUserName(userName);
+		
+		model.addAttribute("user",userName);
+		model.addAttribute("friends",friends);
+		model.addAttribute("blocks",blocks);
+		
 		return "contacts";
 	}
  

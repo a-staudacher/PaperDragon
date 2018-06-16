@@ -1,28 +1,23 @@
 <!DOCTYPE html>
-<html  xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html>
 
 <head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<div th:replace="~{includes/bootstrap :: bootstrapMeta}" />
     <title>Paper Dragon Index</title>
-	<div th:replace="~{includes/bootstrap :: bootstrapCSS}" />
 
     <!-- Core CSS - Include with every page -->
-    <link href="resource/css/bootstrap.min.css" rel="stylesheet">
-    <link href="resource/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
 
     <!-- Page-Level Plugin CSS - Dashboard -->
-    <link href="resource/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
-    <link href="resource/css/plugins/timeline/timeline.css" rel="stylesheet">
+    <link href="css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
+    <link href="css/plugins/timeline/timeline.css" rel="stylesheet">
 
     <!-- SB Admin CSS - Include with every page -->
-    <link href="resource/css/sb-admin.css" rel="stylesheet">
-	
+    <link href="css/sb-admin.css" rel="stylesheet">
 
 </head>
 
@@ -258,8 +253,8 @@
                             <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Main</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>  Character<span class="fa arrow"></span></a>
-              
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Character</a>
+
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
@@ -269,16 +264,15 @@
                             <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Contacts</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Group<span class="fa arrow"></span></a>
-                           
-                            <!-- /.nav-second-level -->
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Group</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Create Group<span class="fa arrow"></span></a>
-                 
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Create Groupe</span></a>
+                            
                         </li>
-                        <li>
-
+                    </ul>
+                    <!-- /#side-menu -->
+                </div>
                 <!-- /.sidebar-collapse -->
             </div>
             <!-- /.navbar-static-side -->
@@ -288,7 +282,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <br>
-                    <h1 class="page-header">Main</h1>
+                    <h1 class="page-header">Contacts</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -297,130 +291,21 @@
                 <div class="col-lg-8">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Character Info
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Friendlist
                             <div class="pull-right">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Actions
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="#">Action</a>
-                                        </li>
-                                        <li><a href="#">Another action</a>
-                                        </li>
-                                        <li><a href="#">Something else here</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                
                             </div>
                         </div>
-						
-						
-						
-	
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-
-
-							
-                            <div id="morris-area-chart" style="position: relative;">
-							
-							
-							
-							
-									
-													   
-													<div class="box box-info">
-														
-															<div class="box-body">
-																	 <div class="col-sm-6">
-																	 <div  align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive"> 
-																
-																<input id="profile-image-upload" class="hidden" type="file">
-												<div style="color:#999;" >click here to change profile image</div>
-																<!--Upload Image Js And Css-->
-																  
-																	 </div>
-															  <br>
-														</div>
-													</div> 
-													</div>
-													
-													
-													
-													
-								
-																		<div class="col-sm-6">
-																		<h4 style="color:#00b1b1;">Character Name </h4></span>
-																		  <span><p>Gender:</p></span>             
-																		</div>
-																		<div class="clearfix"></div>
-																		<hr style="margin:5px 0 5px 0;">
-																
-																		  
-																										<h2>Stats:</h2>
-															  
-												<div class="col-sm-5 col-xs-6 tital " >Strength (STR):</div><div class="col-sm-7 col-xs-6 ">10</div>
-													 <div class="clearfix"></div>
-												<div class="bot-border"></div>
-
-												<div class="col-sm-5 col-xs-6 tital " >Dexterity (DEX):</div><div class="col-sm-7"> 4</div>
-												  <div class="clearfix"></div>
-												<div class="bot-border"></div>
-
-												<div class="col-sm-5 col-xs-6 tital " >Intelligence (INT):</div><div class="col-sm-7"> 6</div>
-												  <div class="clearfix"></div>
-												<div class="bot-border"></div>
-
-												<div class="col-sm-5 col-xs-6 tital " >Constitution (CON):</div><div class="col-sm-7">10</div>
-
-												  <div class="clearfix"></div>
-												<div class="bot-border"></div>
-
-												<div class="col-sm-5 col-xs-6 tital " >Vitality (VIT):</div><div class="col-sm-7">5</div>
-
-												  <div class="clearfix"></div>
-												<div class="bot-border"></div>
-
-												<div class="col-sm-5 col-xs-6 tital " >Wisdom (WIS):</div><div class="col-sm-7">7</div>
-
-												 <div class="clearfix"></div>
-												<div class="bot-border"></div>
-
-												<div class="col-sm-5 col-xs-6 tital " >Charisma (CHA):</div><div class="col-sm-7">2</div>
-																									
-													
-												 
-													<script>
-															  $(function() {
-													$('#profile-image1').on('click', function() {
-														$('#profile-image-upload').click();
-													});
-												});       
-												</script> 
-
-												  
-												
-							
-							
-							<desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs></div>
-							
-	
-							
+                            <div id="morris-area-chart" style="position: relative;"><svg height="382" version="1.1" width="757" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs></svg></div>
                         </div>
                         <!-- /.panel-body -->
-						
-				
-	
                     </div>
                     <!-- /.panel -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Gamesession
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
                             <div class="pull-right">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -450,34 +335,59 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Name of Gamesession</th>
-                                                    <th>Friends Online</th>
+                                                    <th>Date</th>
+                                                    <th>Time</th>
+                                                    <th>Amount</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>KingKong</td>
-                                                    <td>5</td>
-                                                 
+                                                    <td>3326</td>
+                                                    <td>10/21/2013</td>
+                                                    <td>3:29 PM</td>
+                                                    <td>$321.33</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>2</td>
-                                                    <td>Supersmash</td>
-                                                    <td>10</td>
-                                               
+                                                    <td>3325</td>
+                                                    <td>10/21/2013</td>
+                                                    <td>3:20 PM</td>
+                                                    <td>$234.34</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>3</td>
-                                                    <td>Path of Exile</td>
-                                                    <td>0</td>
-                                               
+                                                    <td>3324</td>
+                                                    <td>10/21/2013</td>
+                                                    <td>3:03 PM</td>
+                                                    <td>$724.17</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>4</td>
-                                                    <td>Overwatch</td>
-                                                    <td>0</td>
-                                                   
+                                                    <td>3323</td>
+                                                    <td>10/21/2013</td>
+                                                    <td>3:00 PM</td>
+                                                    <td>$23.71</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3322</td>
+                                                    <td>10/21/2013</td>
+                                                    <td>2:49 PM</td>
+                                                    <td>$8345.23</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3321</td>
+                                                    <td>10/21/2013</td>
+                                                    <td>2:23 PM</td>
+                                                    <td>$245.12</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3320</td>
+                                                    <td>10/21/2013</td>
+                                                    <td>2:15 PM</td>
+                                                    <td>$5663.54</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3319</td>
+                                                    <td>10/21/2013</td>
+                                                    <td>2:13 PM</td>
+                                                    <td>$943.45</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -513,7 +423,7 @@
                 <div class="col-lg-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bell fa-fw"></i> Notifications Center
+                            <i class="fa fa-bell fa-fw"></i> Notifications Panel
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -571,7 +481,7 @@
                     <div class="chat-panel panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-comments fa-fw"></i>
-                            Chat Center
+                            Chat
                             <div class="btn-group pull-right">
                                 <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-chevron-down"></i>
@@ -608,30 +518,12 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                        	<div th:if="${gameSession}">
-                        		<table data-toggle="table" class="table table-striped">
-									<thead>
-										<tr>
-											<th data-sortable="true">UserName</th>
-											<th data-sortable="true">Nachricht</th>
-											<th data-sortable="true">Zeit</th>
-										</tr>
-									</thead>
-									<tbody>
-                            			<tr th:each="line : ${gameSession.chatLines}">
-  											<td th:text="${line.user.userName}">User Name</td>
-  											<td th:text="${line.text}">Nachricht</td>
-  											<td th:text="${line.date}">Zeit</td> 								
-										</tr>
-									</tbody>
-								</table>
-							</div>
+                            
                         </div>
                         <!-- /.panel-body -->
                         <div class="panel-footer">
                             <div class="input-group">
-                            	<form method="post" th:action="@{/chat}">
-                                <input id="btn-input" type="text" class="form-control input-sm" name="text" placeholder="Type your message here...">
+                                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here...">
                                 <span class="input-group-btn">
                                     <button class="btn btn-warning btn-sm" id="btn-chat">
                                         Send
@@ -653,16 +545,16 @@
     <!-- /#wrapper -->
 
     <!-- Core Scripts - Include with every page -->
-    <script src="resource/js/jquery-1.10.2.js"></script>
-    <script src="resource/js/bootstrap.min.js"></script>
-    <script src="resource/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
 
     <!-- Page-Level Plugin Scripts - Dashboard -->
-    <script src="resource/js/plugins/morris/raphael-2.1.0.min.js"></script>
-    <script src="resource/js/plugins/morris/morris.js"></script>
+    <script src="js/plugins/morris/raphael-2.1.0.min.js"></script>
+    <script src="js/plugins/morris/morris.js"></script>
 
     <!-- SB Admin Scripts - Include with every page -->
-    <script src="resource/js/sb-admin.js"></script>
+    <script src="js/sb-admin.js"></script>
 
     <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
     <!--<script src="js/demo/dashboard-demo.js"></script>-->
@@ -672,7 +564,7 @@
 
 
 
-<div th:replace="~{includes/bootstrap :: bootstrapJS}" />
+
 </body>
 
 </html>

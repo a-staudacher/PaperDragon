@@ -31,6 +31,10 @@ public class ItemBaseModel implements java.io.Serializable {
 	@Column(nullable = false, length = 100)
 	private String text;
 	
+	//todo: in documentation er diagramm
+	@OneToOne(cascade = CascadeType.ALL)
+	private DocumentModel picture;
+	
     @OneToMany(mappedBy="itemBase", fetch=FetchType.LAZY)
     private Set<ItemModel> items;
 	

@@ -1,9 +1,13 @@
 package at.fh.swenga.controller;
  
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -80,11 +84,38 @@ public class SecurityController {
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registerPost() { //registerPost(@Param string Usernamem, ...)
+	public String registerPost(@Valid User newUser, BindingResult bindingResult,
+			Model model) {
 		
-		//create new user
-		// userRepository.save(user)
-		return "login"; // meldung erfolgreich? oder direkt zur login page?
+		
+		if (bindingResult.hasErrors()) {
+			String errorMessage = "";
+			for (FieldError fieldError : bindingResult.getFieldErrors()) {
+				errorMessage += fieldError.getField() + " is invalid<br>";
+			}
+			model.addAttribute("errorMessage", errorMessage);
+
+			return "forward:/login";
+		}
+		UserRole userRole = userRoleRepository.findUserRole("ROLE_USER");
+		
+		// Look for User in the List. One available -> Error 
+		User user = userRepository.findUser(newUser.getUserName());
+ 
+		if (user != null) {
+			model.addAttribute("errorMessage", "user already exists!<br>");
+			return "register";
+		} else {			
+			newUser.encryptPassword();
+			newUser.addUserRole(userRole);
+			//userDao.persist(user);
+			newUser = userRepository.save(newUser);
+			model.addAttribute("Registrierung", "New user " + newUser.getUserName() + "  erfolgreich.");
+		}
+ 
+		return "forward:/login";
+		
+
 	}
  
 	@ExceptionHandler(Exception.class)
@@ -93,6 +124,8 @@ public class SecurityController {
 		return "error";
  
 	}
+	
+	
 	/*
 	 * @ExceptionHandler()
 	 * 
