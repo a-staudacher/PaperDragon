@@ -2,6 +2,7 @@ package at.fh.swenga.controller;
  
 import javax.validation.Valid;
 
+import org.fluttercode.datafactory.impl.DataFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +19,8 @@ import at.fh.swenga.dao.UserRoleDao;
 import at.fh.swenga.dao.UserRoleRepository;
 import at.fh.swenga.model.User;
 import at.fh.swenga.model.UserRole;
+import at.fh.swenga.model.Character;
+import at.fh.swenga.dao.CharacterRepository;
  
 @Controller
 public class SecurityController {
@@ -27,12 +30,16 @@ public class SecurityController {
 	
 	@Autowired
 	UserRepository userRepository;
+	
+	@Autowired
+	CharacterRepository characterRepository;
  
 	@Autowired
 	UserRoleDao userRoleDao;
 	
 	@Autowired
 	UserRoleRepository userRoleRepository;
+	
  
 	@RequestMapping("/fillUsers")
 	@Transactional
@@ -68,6 +75,20 @@ public class SecurityController {
 			//userDao.persist(user);
 			user = userRepository.save(user);
 		}
+		
+		
+		DataFactory df = new DataFactory();
+		
+		String[] names = {"Andreal", "Turial", "Fliroa", "Wacko Kane", "Razor Chilton", "Mad Eyed Neddy", "Kellie Bullettooth" ,"Krista Scarface", "Cindy the Fang", "Corinne Ghost"};
+		String[] gender = {"Male", "Female"};
+
+		Character character = new Character(df.getItem(names), "", df.getNumberUpTo(20), df.getNumberUpTo(20), df.getNumberUpTo(20), df.getNumberUpTo(20), df.getNumberUpTo(20), df.getNumberUpTo(20), df.getNumberUpTo(20), df.getItem(gender), null, admin);
+		Character character2 = new Character(df.getItem(names), "", df.getNumberUpTo(20), df.getNumberUpTo(20), df.getNumberUpTo(20), df.getNumberUpTo(20), df.getNumberUpTo(20), df.getNumberUpTo(20), df.getNumberUpTo(20), df.getItem(gender), null, user);
+		
+		admin = userRepository.save(admin);
+		character = characterRepository.save(character);
+		user = userRepository.save(user);
+		character2 = characterRepository.save(character2);
 		
 		return "forward:login";
 	}

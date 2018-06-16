@@ -1,5 +1,6 @@
 package at.fh.swenga.controller;
  
+import java.io.IOException;
 import java.util.Date;
 
 import javax.validation.Valid;
@@ -8,14 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import at.fh.swenga.dao.CharacterRepository;
 import at.fh.swenga.dao.ChatRepository;
+import at.fh.swenga.dao.DocumentModelRepository;
 import at.fh.swenga.dao.GameSessionRepository;
 import at.fh.swenga.dao.UserRepository;
 import at.fh.swenga.model.Chat;
@@ -37,6 +39,9 @@ public class MainController {
 	
 	@Autowired
 	ChatRepository chatRepository;
+	
+	@Autowired
+	DocumentModelRepository documentModelRepository;
 	
 	@RequestMapping(value="/",method = RequestMethod.GET)
 	public String index(Model model, Authentication authentication) {
@@ -100,6 +105,43 @@ public class MainController {
 		
 		return "forward:index";
 	}
+
+	@RequestMapping(value="/uploadProfilePic",method = RequestMethod.POST )
+	public String uploadProfilePic(Model model, @RequestParam("my_file") MultipartFile file, Authentication authentication) {
+		String username = authentication.getName();
+		User user = userRepository.findUser(username);
+		
+		
+		DocumentModel document = new DocumentModel();
+
+		
+			try {
+				document.setContent(file.getBytes());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			document.setContentType(file.getContentType());
+			document.setCreated(new Date());
+			document.setFilename(file.getOriginalFilename());
+			document.setName(file.getName());
+			
+			DocumentModel old = documentModelRepository.findByUserUserName(username);
+			//todo: if(document.getContentType()) is not picture dont upload
+			if(old!=null)
+				documentModelRepository.delete(old);
+			user.setPicture(document);
+			
+			
+			
+		documentModelRepository.save(document);
+		userRepository.save(user);
+		return index(model,authentication);
+	}
+	
+	
+	
+	
 	
 	@RequestMapping(value="/chat",method = RequestMethod.POST )
 	public String postChat(@Valid @ModelAttribute Chat newChat, Model model, Authentication authentication) {

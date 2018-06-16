@@ -330,18 +330,26 @@
                             <div id="morris-area-chart" style="position: relative;">
 							
 							
-							
-							
-									
+	
 													   
 													<div class="box box-info">
 														
 															<div class="box-body">
 																	 <div class="col-sm-6">
-																	 <div  align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive"> 
+																	 <form th:action="@{/uploadProfilePic}" enctype="multipart/form-data" method="post">
+																	 <div  align="center"> <input type="image" th:src="${user.picture} ? ${user.picture.content} : 'https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg'" 
+																	 id="profile-image1" class="img-circle img-responsive" style="width:200px" > 
 																
-																<input id="profile-image-upload" class="hidden" type="file">
+																<input type="file" id="my_file" name="my_file" accept="image/*" style="display: none;" />
+																<!-- <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/> -->
+																<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+																    <script>
+																    $("input[type='image']").click(function() {
+																        $("input[id='my_file']").click();
+																    });     
+              														</script>
 												<div style="color:#999;" >click here to change profile image</div>
+												</form>
 																<!--Upload Image Js And Css-->
 																  
 																	 </div>
@@ -355,8 +363,8 @@
 													
 								
 																		<div class="col-sm-6">
-																		<h4 style="color:#00b1b1;">Character Name </h4></span>
-																		  <span><p>Gender:</p></span>             
+																		<h4 style="color:#00b1b1;">Character Name: <span th:text="${user.character.name}"></span> </h4></span>
+																		  <span><p>Gender: <span th:text="${user.character.gender}"></span>  </p></span>             
 																		</div>
 																		<div class="clearfix"></div>
 																		<hr style="margin:5px 0 5px 0;">
@@ -364,44 +372,37 @@
 																		  
 																										<h2>Stats:</h2>
 															  
-												<div class="col-sm-5 col-xs-6 tital " >Strength (STR):</div><div class="col-sm-7 col-xs-6 ">10</div>
+												<div class="col-sm-5 col-xs-6 tital " >Strength (STR):</div><div class="col-sm-7 col-xs-6 " th:text="${user.character.strength}"></div>
 													 <div class="clearfix"></div>
 												<div class="bot-border"></div>
 
-												<div class="col-sm-5 col-xs-6 tital " >Dexterity (DEX):</div><div class="col-sm-7"> 4</div>
+												<div class="col-sm-5 col-xs-6 tital " >Dexterity (DEX):</div><div class="col-sm-7" th:text="${user.character.dexterity}"></div>
 												  <div class="clearfix"></div>
 												<div class="bot-border"></div>
 
-												<div class="col-sm-5 col-xs-6 tital " >Intelligence (INT):</div><div class="col-sm-7"> 6</div>
+												<div class="col-sm-5 col-xs-6 tital " >Intelligence (INT):</div><div class="col-sm-7" th:text="${user.character.intelligence}"></div>
 												  <div class="clearfix"></div>
 												<div class="bot-border"></div>
 
-												<div class="col-sm-5 col-xs-6 tital " >Constitution (CON):</div><div class="col-sm-7">10</div>
-
-												  <div class="clearfix"></div>
-												<div class="bot-border"></div>
-
-												<div class="col-sm-5 col-xs-6 tital " >Vitality (VIT):</div><div class="col-sm-7">5</div>
+												<div class="col-sm-5 col-xs-6 tital " >Constitution (CON):</div><div class="col-sm-7" th:text="${user.character.constitution}"></div>
 
 												  <div class="clearfix"></div>
 												<div class="bot-border"></div>
 
-												<div class="col-sm-5 col-xs-6 tital " >Wisdom (WIS):</div><div class="col-sm-7">7</div>
+												<div class="col-sm-5 col-xs-6 tital " >Vitality (VIT):</div><div class="col-sm-7" th:text="${user.character.vitality}"></div>
+
+												  <div class="clearfix"></div>
+												<div class="bot-border"></div>
+
+												<div class="col-sm-5 col-xs-6 tital " >Wisdom (WIS):</div><div class="col-sm-7" th:text="${user.character.wisdom}"></div>
 
 												 <div class="clearfix"></div>
 												<div class="bot-border"></div>
 
-												<div class="col-sm-5 col-xs-6 tital " >Charisma (CHA):</div><div class="col-sm-7">2</div>
+												<div class="col-sm-5 col-xs-6 tital " >Charisma (CHA):</div><div class="col-sm-7" th:text="${user.character.charisma}"></div>
 																									
 													
 												 
-													<script>
-															  $(function() {
-													$('#profile-image1').on('click', function() {
-														$('#profile-image-upload').click();
-													});
-												});       
-												</script> 
 
 												  
 												
@@ -450,34 +451,14 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Name of Gamesession</th>
+                                                    <th th:text="${gameSession.name}">Name of Gamesession</th>
                                                     <th>Friends Online</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>KingKong</td>
-                                                    <td>5</td>
-                                                 
-                                                </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>Supersmash</td>
-                                                    <td>10</td>
-                                               
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>Path of Exile</td>
-                                                    <td>0</td>
-                                               
-                                                </tr>
-                                                <tr>
-                                                    <td>4</td>
-                                                    <td>Overwatch</td>
-                                                    <td>0</td>
-                                                   
+                                                <tr th:each="user : ${gameSession.users}">
+                                                	<td th:text="${user.userName}">User Name</td>
+		  											<td th:text="${user.userName}">Nachricht</td>
                                                 </tr>
                                             </tbody>
                                         </table>

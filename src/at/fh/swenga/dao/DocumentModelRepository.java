@@ -10,5 +10,5 @@ import at.fh.swenga.model.DocumentModel;
 @Repository
 @Transactional
 public interface DocumentModelRepository extends JpaRepository<DocumentModel, Integer> {
-	
+	public DocumentModel findByUserUserName(String username);
 }

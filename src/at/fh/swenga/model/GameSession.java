@@ -42,7 +42,7 @@ public class GameSession implements java.io.Serializable {
     @OneToMany(mappedBy="gameSession", fetch=FetchType.EAGER)
     private Set<Chat> chatLines;
     
-    @OneToMany(mappedBy="gameSession", fetch=FetchType.LAZY)
+    @OneToMany(mappedBy="gameSession", fetch=FetchType.EAGER)
     private Set<User> users;
 
 	public int getId() {

@@ -67,7 +67,7 @@ public class User implements java.io.Serializable {
 	@OneToOne(cascade = CascadeType.ALL)
 	private DocumentModel picture;
 	
-	@OneToOne(mappedBy="user",cascade = CascadeType.ALL)
+	@OneToOne(mappedBy="user")
 	private Character character;
 	
     @OneToMany(mappedBy="user", fetch=FetchType.LAZY)

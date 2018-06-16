@@ -34,7 +34,7 @@ public class Character implements java.io.Serializable {
 	private Integer strength;
 	
 	@Column(nullable = false)
-	private Integer intelligenz;
+	private Integer intelligence;
 	
 	@Column(nullable = false)
 	private Integer dexterity;
@@ -51,7 +51,7 @@ public class Character implements java.io.Serializable {
 	@Column(nullable = false)
 	private Integer charisma;
 	
-	@Column(nullable = false, length = 1)
+	@Column(nullable = false, length = 20)
 	private String gender;
 	
     @OneToMany(mappedBy="character", fetch=FetchType.LAZY)
@@ -63,14 +63,14 @@ public class Character implements java.io.Serializable {
     public Character() {}
 
 
-	public Character(String name, String history, Integer strength, Integer intelligenz, Integer dexterity,
+	public Character(String name, String history, Integer strength, Integer intelligence, Integer dexterity,
 			Integer constitution, Integer vitality, Integer wisdom, Integer charisma, String gender,
 			Set<ItemModel> items, User user) {
 		super();
 		this.name = name;
 		this.history = history;
 		this.strength = strength;
-		this.intelligenz = intelligenz;
+		this.intelligence = intelligence;
 		this.dexterity = dexterity;
 		this.constitution = constitution;
 		this.vitality = vitality;
@@ -115,12 +115,12 @@ public class Character implements java.io.Serializable {
 		this.strength = strength;
 	}
 
-	public Integer getIntelligenz() {
-		return intelligenz;
+	public Integer getIntelligence() {
+		return intelligence;
 	}
 
-	public void setIntelligenz(Integer intelligenz) {
-		this.intelligenz = intelligenz;
+	public void setIntelligence(Integer intelligence) {
+		this.intelligence = intelligence;
 	}
 
 	public Integer getDexterity() {
