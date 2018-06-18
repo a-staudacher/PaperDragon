@@ -336,7 +336,7 @@
 														
 															<div class="box-body">
 																	 <div class="col-sm-6">
-																	 <form th:action="@{/uploadProfilePic}" enctype="multipart/form-data" method="post">
+																	 <form th:action="@{'/uploadProfilePic' +'?' + ${_csrf.parameterName} + '=' + ${_csrf.token}}" enctype="multipart/form-data" method="post">
 																	 <div  align="center"> <input type="image" th:src="${user.picture} ? @{'data:image/jpeg;base64,'+*{T(org.springframework.util.Base64Utils).encodeToString(user.picture.content)}} : 'https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg'" 
 																	 id="profile-image1" class="img-circle img-responsive" style="width:200px" > 
 																
