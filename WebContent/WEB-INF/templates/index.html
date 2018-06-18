@@ -310,11 +310,12 @@
 														
 															<div class="box-body">
 																	 <div class="col-sm-6">
-																	 <form th:action="@{/uploadProfilePic}" enctype="multipart/form-data" method="post">
-																	 <div  align="center"> <input type="image" th:src="${user.picture} ? ${user.picture.content} : 'https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg'" 
+																	 <form th:action="@{'/uploadProfilePic' +'?' + ${_csrf.parameterName} + '=' + ${_csrf.token}}" enctype="multipart/form-data" method="post">
+																	 <div  align="center"> <input type="image" th:src="${user.picture} ? @{'data:image/jpeg;base64,'+*{T(org.springframework.util.Base64Utils).encodeToString(user.picture.content)}} : 'https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg'" 
 																	 id="profile-image1" class="img-circle img-responsive" style="width:200px" > 
 																
-																<input type="file" id="my_file" name="my_file" accept="image/*" style="display: none;" />
+																<input type="file" id="my_file" name="my_file" accept="image/*" />
+																
 																<!-- <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/> -->
 																<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 																    <script>
@@ -322,6 +323,7 @@
 																        $("input[id='my_file']").click();
 																    });     
               														</script>
+              														<button>Upload Picture</button>
 												<div style="color:#999;" >click here to change profile image</div>
 												</form>
 																<!--Upload Image Js And Css-->
@@ -421,7 +423,7 @@
                             <div class="row">
                                 <div class="col-lg-4">
                                     <div class="table-responsive">
-                                        <table class="table table-bordered table-hover table-striped">
+                                        <table class="table table-bordered table-hover table-striped" th:if="${gameSession}">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>

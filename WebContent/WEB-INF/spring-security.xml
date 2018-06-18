@@ -10,7 +10,7 @@
 
 	<http>
 	<!-- in project disabled="false" -->
-		<csrf disabled="true"/>
+		<csrf disabled="false"/>
 		<intercept-url pattern="/login" access="permitAll" />
 		<intercept-url pattern="/fillUsers" access="permitAll" />
 		<intercept-url pattern="/resource/**" access="permitAll" />
