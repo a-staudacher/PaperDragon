@@ -103,7 +103,7 @@ public class MainController {
 		chatRepository.save(line3);
 		
 		
-		return "forward:index";
+		return index(model,authentication);
 	}
 
 	@RequestMapping(value="/uploadProfilePic",method = RequestMethod.POST )
@@ -151,7 +151,7 @@ public class MainController {
 		newChat.setGamesession(user.getGameSession());
 		chatRepository.save(newChat);
 
-		return "index";
+		return index(model,authentication);
 	}
 	/*
 	 * @ExceptionHandler()
