@@ -1,7 +1,15 @@
 <nav th:fragment="search" class="navbar navbar-default">
 	<div class="container-fluid">
-		<form class="navbar-form navbar-right" th:action="@{/logout}" method="post" >
-      		<input class="btn btn-danger" type="submit" value="Sign Out"/>
-   		</form> 
+
+
+		<!-- HTML form with search textbox and submit button-->
+		<form class="navbar-form navbar-right" role="search" method="post" action="searchEmployees">
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="Add Filter" name="searchString">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="submit">Search!</button>
+				</span>
+			</div>
+		</form>
 	</div>
 </nav>

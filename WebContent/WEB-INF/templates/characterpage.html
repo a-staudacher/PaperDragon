@@ -143,32 +143,112 @@
                     </div>
                     <!-- /.panel -->
                 </div>
-                <!-- /.col-lg-12 -->
-                <div class="col-lg-6">
+                
+                
+   <!--  --------------------------------------------------------------------------------------- -->             
+                
+                
+     <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Inventory
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div class="flot-chart">
-                                <div class="flot-chart-content" id="flot-pie-chart"></div>
-                            </div>
+                        
+                        
+                        
+        <div class="container" role="main">
+
+
+		<!-- include the Nav bar fragment-->
+		<nav th:replace="~{includes/searchNav :: search}"></nav>
+
+	
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+
+				<table data-toggle="table" class="table table-striped">
+					<thead>
+						<tr>
+							<th data-sortable="true">Icon</th>
+							<th data-sortable="true">Name</th>
+							<th data-sortable="true">STR</th>
+							<th data-sortable="true">DEX</th>
+							<th data-sortable="true">INT</th>
+							<th data-sortable="true">CON</th>
+							<th data-sortable="true">VIT</th>
+							<th data-sortable="true">WIS</th>
+							<th data-sortable="true">CHA</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody th:if="${false}">
+						<!--  list all items ----------------------------------------------------------- -->
+						<tr th:each="item : ${character.items}">
+							<td th:text="${item.itemBase.picture}"></td>
+							<td th:text="${item.itemBase.name}"></td>
+							<td th:text="${{item.itemBase.strength}"></td>
+							<td th:text="${{item.itemBase.dexterity}"></td>
+							<td th:text="${{item.itemBase.inteligenz}"></td>
+							<td th:text="${{item.itemBase.constitution}"></td>
+							<td th:text="${{item.itemBase.vitality}"></td>
+							<td th:text="${{item.itemBase.wisdom}"></td>
+							<td th:text="${{item.itemBase.charisma}"></td>
+
+							<td>
+								<a th:href="@{/equipItem(id=${item.id})}" class="btn btn-xs btn-success">
+									<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+									Equip
+								</a>
+
+								<a th:href="@{/dropItem(id=${item.id})}" class="btn btn-xs btn-danger">
+									<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+									Drop
+								</a>
+
+							</td>
+						</tr>
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+                       
                         </div>
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
                 </div>
-                <!-- /.col-lg-6 -->
-                <div class="col-lg-6">
+                
+                
+   <!--  --------------------------------------------------------------------------------------- -->                       
+                
+                
+                
+                <!-- /.col-lg-12 -->
+				<div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">Equipment Overview
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
+                        
+                        
                             <div class="flot-chart">
-                                <div class="flot-chart-content" id="flot-line-chart-multi"></div>
-                            </div>
+                              
+                                
+                                <div style="boarder-sytle:solid; height:300px; width:50%">
+                                	
+                                	<img src="resource/images/items/1HWeapon/Amberwing.png" style="position:relative; border-style:solid; right:-450px; border-width:3px; top:200px; width:80px"> 
+                                	<img src="resource/images/items/1HWeapon/Amberwing.png" style="position:relative; top:-10px; right:-450px; border-style:solid; border-width:3px; width:80px"> 
+                                	<img src="resource/images/items/1HWeapon/Amberwing.png" style="border-style:solid; width:80px; border-width:3px;"> 
+                                	<img src="resource/images/items/1HWeapon/Amberwing.png" style="border-style:solid; width:80px; border-width:3px;"> 
+                                	
+                                </div>
+                                
+                           
                         </div>
                         <!-- /.panel-body -->
                     </div>
