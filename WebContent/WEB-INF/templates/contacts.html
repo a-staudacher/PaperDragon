@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html  xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
@@ -75,9 +74,9 @@
 									</thead>
 									
 									<tbody>
-                            			<tr th:each="user : ${userList}">
-  											<td th:text="${user.userName}">User Name</td>
-											<td> <a class="btn btn-danger" th:href="@{/removeFriend(name=${user.userName})}"style = float:right>Delete</a> </td>
+                            			<tr th:each="friend : ${friends}">
+  											<td th:text="${friend.friend2.userName}">User Name</td>
+											<td> <a class="btn btn-danger" th:href="@{/removeFriend(name=${friend.friend2.userName})}"style = float:right>Delete</a> </td>
 											
 										</tr>
 									</tbody>
@@ -115,9 +114,9 @@
 									</thead>
 									
 									<tbody>
-                            			<tr th:each="user : ${userList}">
-  											<td th:text="${user.userName}">User Name</td>
-											<td> <a  class="btn btn-danger" th:href="@{/removeBlock(name=${user.userName})}"style = float:right>Delete</a> </td>
+                            			<tr th:each="block : ${blocks}">
+  											<td th:text="${block.blockedUser.userName}">User Name</td>
+											<td> <a  class="btn btn-danger" th:href="@{/removeBlock(name=${block.blockedUser.userName})}"style = float:right>Delete</a> </td>
 											
 										</tr>
 									</tbody>

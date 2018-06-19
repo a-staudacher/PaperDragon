@@ -12,15 +12,16 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import at.fh.swenga.dao.CharacterRepository;
 import at.fh.swenga.dao.UserDao;
 import at.fh.swenga.dao.UserRepository;
 import at.fh.swenga.dao.UserRoleDao;
 import at.fh.swenga.dao.UserRoleRepository;
+import at.fh.swenga.model.Character;
 import at.fh.swenga.model.User;
 import at.fh.swenga.model.UserRole;
-import at.fh.swenga.model.Character;
-import at.fh.swenga.dao.CharacterRepository;
  
 @Controller
 public class SecurityController {
@@ -49,12 +50,12 @@ public class SecurityController {
 		UserRole adminRole = userRoleRepository.findUserRole("ROLE_ADMIN");
 		if (adminRole == null)
 			adminRole = new UserRole("ROLE_ADMIN");
- 
+		userRoleRepository.save(adminRole);
 		//UserRole userRole = userRoleDao.getRole("ROLE_USER");
 		UserRole userRole = userRoleRepository.findUserRole("ROLE_USER");
 		if (userRole == null)
 			userRole = new UserRole("ROLE_USER");
- 
+		userRoleRepository.save(userRole);
 		User admin = userRepository.findUser("admin");
 		if(admin==null)
 		{
@@ -105,7 +106,7 @@ public class SecurityController {
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registerPost(@Valid User newUser, BindingResult bindingResult,
+	public String registerPost(@Valid User newUser, @RequestParam String charactername, @RequestParam(required=false) String male, BindingResult bindingResult,
 			Model model) {
 		
 		
@@ -116,7 +117,7 @@ public class SecurityController {
 			}
 			model.addAttribute("errorMessage", errorMessage);
 
-			return "forward:/login";
+			return "register";
 		}
 		UserRole userRole = userRoleRepository.findUserRole("ROLE_USER");
 		
@@ -129,12 +130,17 @@ public class SecurityController {
 		} else {			
 			newUser.encryptPassword();
 			newUser.addUserRole(userRole);
+			newUser.setEnabled(true);
 			//userDao.persist(user);
 			newUser = userRepository.save(newUser);
 			model.addAttribute("Registrierung", "New user " + newUser.getUserName() + "  erfolgreich.");
 		}
- 
-		return "forward:/login";
+		DataFactory df = new DataFactory();
+		String gender = male != null ? "Male" : "Female";
+		Character character = new Character(charactername, "", df.getNumberUpTo(20), df.getNumberUpTo(20), df.getNumberUpTo(20), df.getNumberUpTo(20), df.getNumberUpTo(20), df.getNumberUpTo(20), df.getNumberUpTo(20), gender, null, newUser);
+		characterRepository.save(character);
+		
+		return handleLogin();
 		
 
 	}

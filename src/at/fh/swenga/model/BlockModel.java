@@ -16,10 +16,10 @@ public class BlockModel implements java.io.Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@ManyToOne (cascade = CascadeType.PERSIST)
+	@ManyToOne
 	private User user;
 	
-	@ManyToOne (cascade = CascadeType.PERSIST)
+	@ManyToOne
 	private User blockedUser;
 	
 	public BlockModel() {}

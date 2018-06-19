@@ -49,7 +49,7 @@ public class User implements java.io.Serializable {
 	@Column(nullable = false)
 	private boolean gameAccepted;
 	
-	@ManyToMany(fetch=FetchType.LAZY,cascade=CascadeType.PERSIST)
+	@ManyToMany(fetch=FetchType.LAZY)
 	private Set<UserRole> userRoles;
 	
     @OneToMany(mappedBy="friend1", fetch=FetchType.LAZY)
@@ -165,16 +165,12 @@ public class User implements java.io.Serializable {
 		userRoles.add(userRole);
 	}
 
-	public void addFriend(User user) {
-		if (friends1==null) friends1 = new HashSet<FriendModel>();
-		friends1.add(new FriendModel(this, user, false));
-		//todo: persist FriendModel
+	public FriendModel addFriend(User user) {
+		return new FriendModel(this, user, false);
 	}
 
-	public void addBlockedUser(User user) {
-		if (blockedUsers==null) blockedUsers = new HashSet<BlockModel>();
-		blockedUsers.add(new BlockModel(this, user));
-		//todo: persist BlockModel
+	public BlockModel addBlockedUser(User user) {
+		return new BlockModel(this, user);
 	}
 	
 	public Set<UserRole> getUserRoles() {

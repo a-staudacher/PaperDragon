@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html  xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
@@ -49,7 +48,7 @@
                     <br>
                     <h1 class="page-header">Group</h1>
 					<h2 class="page-header"> Game Session  <button type="submit" class="btn btn-primary"  style="float: right;" >Leave Group</button></h2>
-					<h3> <span th:text="${gamesession} ? ${gamesession.name}"></span> </h3>
+					<h3> <span th:text="${gameSession} ? ${gameSession.name}"></span> </h3>
 				
                 </div>
                 <!-- /.col-lg-12 -->
@@ -79,7 +78,7 @@
 									</thead>
 									
 									<tbody>
-                            			<tr th:each="user : ${userList}">
+                            			<tr th:each="user : ${gameSession.users}">
   											<td th:text="${user.userName}">User Name</td>
 											
 											
@@ -102,7 +101,7 @@
                             </div>
                         </div>
                         <!-- /.panel-heading -->
-                        <div class="panel-body" style="width: 100%; height: 400px;" th:text="${gamesession} ? ${gamesession.lore}">
+                        <div class="panel-body" style="width: 100%; height: 400px;" th:text="${gameSession} ? ${gameSession.lore}">
 						
 						
 
@@ -140,7 +139,7 @@
 									<tbody>
                             			<tr th:each="user : ${userList}">
   											<td th:text="${user.userName}">User Name</td>
-											
+											<td> <a class="btn btn-danger" th:href="@{/addMember(name=${user.userName})}"style = float:right>ADD</a> </td>				
 										</tr>
 									</tbody>
 								</table>

@@ -13,4 +13,5 @@ import at.fh.swenga.model.FriendModel;
 @Transactional
 public interface FriendModelRepository extends JpaRepository<FriendModel, Integer> {
 	List<FriendModel> findByFriend1UserName(String userName);
+	FriendModel findByFriend1UserNameAndFriend2UserName(String friend1, String friend2);
 }

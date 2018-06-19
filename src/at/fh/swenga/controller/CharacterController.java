@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import at.fh.swenga.dao.BlockModelRepository;
 import at.fh.swenga.dao.CharacterRepository;
@@ -69,7 +70,201 @@ public class CharacterController {
 		
 		return "contacts";
 	}
+	
+	@RequestMapping(value = "/addFriend")
+	public String addFriend(Model model, Authentication authentication, @RequestParam String name) {
+		String userName = authentication.getName();
+		User user = userRepository.findUser(userName);
+		User friend = userRepository.findUser(name);
+		if(friendModelRepository.findByFriend1UserNameAndFriend2UserName(userName, name)==null)
+		{
+			friendModelRepository.save(user.addFriend(friend));
+		}
+		
+		return contacts(model,authentication);
+	}
+	
+	@RequestMapping(value = "/removeFriend")
+	public String removeFriend(Model model, Authentication authentication, @RequestParam String name) {
+		String userName = authentication.getName();
+		FriendModel friendModel = friendModelRepository.findByFriend1UserNameAndFriend2UserName(userName, name);
+		if(friendModel!=null)
+		{
+			friendModelRepository.delete(friendModel);
+		}
+		
+		return contacts(model,authentication);
+	}
+	
+	@RequestMapping(value = "/removeBlock")
+	public String removeBlock(Model model, Authentication authentication, @RequestParam String name) {
+		String userName = authentication.getName();
+		BlockModel blockModel = blockModelRepository.findByUserUserNameAndBlockedUserUserName(userName, name);
+		if(blockModel!=null)
+		{
+			blockModelRepository.delete(blockModel);
+		}
+		
+		return contacts(model,authentication);
+	}
+	
+	@RequestMapping(value = "/addBlock")
+	public String addBlock(Model model, Authentication authentication, @RequestParam String name) {
+		String userName = authentication.getName();
+		User user = userRepository.findUser(userName);
+		User block = userRepository.findUser(name);
+		if(blockModelRepository.findByUserUserNameAndBlockedUserUserName(userName, name)==null)
+		{
+			blockModelRepository.save(user.addBlockedUser(block));
+		}
+		
+		return contacts(model,authentication);
+	}
+	
+	@RequestMapping(value = "/addStrength")
+	public String addStrength(Model model, Authentication authentication) {
+		Character character = userRepository.findUser(authentication.getName()).getCharacter();
+		character.setStrength(character.getStrength()+1);
+		characterRepository.save(character);
+				
+		return characterPage(model,authentication);
+	}
+	
+	@RequestMapping(value = "/subStrength")
+	public String subStrength(Model model, Authentication authentication) {
+		Character character = userRepository.findUser(authentication.getName()).getCharacter();
+		character.setStrength(character.getStrength()-1);
+		characterRepository.save(character);
+				
+		return characterPage(model,authentication);
+	}
+	
+	@RequestMapping(value = "/addCharisma")
+	public String addCharisma(Model model, Authentication authentication) {
+		Character character = userRepository.findUser(authentication.getName()).getCharacter();
+		character.setCharisma(character.getCharisma()+1);
+		characterRepository.save(character);
+				
+		return characterPage(model,authentication);
+	}
+	
+	@RequestMapping(value = "/subCharisma")
+	public String subCharisma(Model model, Authentication authentication) {
+		Character character = userRepository.findUser(authentication.getName()).getCharacter();
+		character.setCharisma(character.getCharisma()-1);
+		characterRepository.save(character);
+				
+		return characterPage(model,authentication);
+	}
+	
+	@RequestMapping(value = "/addConstitution")
+	public String addConstitution(Model model, Authentication authentication) {
+		Character character = userRepository.findUser(authentication.getName()).getCharacter();
+		character.setConstitution(character.getConstitution()+1);
+		characterRepository.save(character);
+				
+		return characterPage(model,authentication);
+	}
+	
+	@RequestMapping(value = "/subConstitution")
+	public String subConstitution(Model model, Authentication authentication) {
+		Character character = userRepository.findUser(authentication.getName()).getCharacter();
+		character.setConstitution(character.getConstitution()-1);
+		characterRepository.save(character);
+				
+		return characterPage(model,authentication);
+	}
+
+	@RequestMapping(value = "/addDexterity")
+	public String addDexterity(Model model, Authentication authentication) {
+		Character character = userRepository.findUser(authentication.getName()).getCharacter();
+		character.setDexterity(character.getDexterity()+1);
+		characterRepository.save(character);
+				
+		return characterPage(model,authentication);
+	}
+	
+	@RequestMapping(value = "/subDexterity")
+	public String subDexterity(Model model, Authentication authentication) {
+		Character character = userRepository.findUser(authentication.getName()).getCharacter();
+		character.setDexterity(character.getDexterity()-1);
+		characterRepository.save(character);
+				
+		return characterPage(model,authentication);
+	}
+	
+	@RequestMapping(value = "/addIntelligence")
+	public String addIntelligence(Model model, Authentication authentication) {
+		Character character = userRepository.findUser(authentication.getName()).getCharacter();
+		character.setIntelligence(character.getIntelligence()+1);
+		characterRepository.save(character);
+				
+		return characterPage(model,authentication);
+	}
+	
+	@RequestMapping(value = "/subIntelligence")
+	public String subIntelligence(Model model, Authentication authentication) {
+		Character character = userRepository.findUser(authentication.getName()).getCharacter();
+		character.setIntelligence(character.getIntelligence()-1);
+		characterRepository.save(character);
+				
+		return characterPage(model,authentication);
+	}
+	
+	@RequestMapping(value = "/addVitality")
+	public String addVitality(Model model, Authentication authentication) {
+		Character character = userRepository.findUser(authentication.getName()).getCharacter();
+		character.setVitality(character.getVitality()+1);
+		characterRepository.save(character);
+				
+		return characterPage(model,authentication);
+	}
+	
+	@RequestMapping(value = "/subVitality")
+	public String subVitality(Model model, Authentication authentication) {
+		Character character = userRepository.findUser(authentication.getName()).getCharacter();
+		character.setVitality(character.getVitality()-1);
+		characterRepository.save(character);
+				
+		return characterPage(model,authentication);
+	}
+	
+	@RequestMapping(value = "/addWisdom")
+	public String addWisdom(Model model, Authentication authentication) {
+		Character character = userRepository.findUser(authentication.getName()).getCharacter();
+		character.setWisdom(character.getWisdom()+1);
+		characterRepository.save(character);
+				
+		return characterPage(model,authentication);
+	}
+	
+	@RequestMapping(value = "/subWisdom")
+	public String subWisdom(Model model, Authentication authentication) {
+		Character character = userRepository.findUser(authentication.getName()).getCharacter();
+		character.setWisdom(character.getWisdom()-1);
+		characterRepository.save(character);
+				
+		return characterPage(model,authentication);
+	}
  
+	@RequestMapping(value = "/updateLore")
+	public String updateLore(Model model, Authentication authentication, @RequestParam String lore) {
+		Character character = userRepository.findUser(authentication.getName()).getCharacter();
+		character.setHistory(lore);
+		characterRepository.save(character);
+				
+		return characterPage(model,authentication);
+	}
+	
+	@RequestMapping(value = "/getExcel")
+	public String updateLore(Model model, Authentication authentication) {
+		Character character = userRepository.findUser(authentication.getName()).getCharacter();
+		model.addAttribute("character", character);
+		
+		return "excelReport";		
+	}
+	
+	
 	@ExceptionHandler(Exception.class)
 	public String handleAllException(Exception ex) {
  

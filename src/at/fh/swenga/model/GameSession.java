@@ -114,6 +114,14 @@ public class GameSession implements java.io.Serializable {
 		this.users = users;
 	}
 
+	public GameSession(String name, String lore) {
+		super();
+		this.name = name;
+		this.lore = lore;
+	}
+	
+	
+
 
 
 

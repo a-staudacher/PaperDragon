@@ -57,7 +57,7 @@ public class Character implements java.io.Serializable {
     @OneToMany(mappedBy="character", fetch=FetchType.LAZY)
     private Set<ItemModel> items;
     
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     User user;
     
     public Character() {}

@@ -13,4 +13,6 @@ import at.fh.swenga.model.BlockModel;
 @Transactional
 public interface BlockModelRepository extends JpaRepository<BlockModel, Integer> {
 	List<BlockModel> findByUserUserName(String userName);
+	
+	BlockModel findByUserUserNameAndBlockedUserUserName(String user, String blockedUser);
 }

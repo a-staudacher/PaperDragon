@@ -17,10 +17,10 @@ public class FriendModel implements java.io.Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@ManyToOne (cascade = CascadeType.PERSIST)
+	@ManyToOne
 	private User friend1;
 	
-	@ManyToOne (cascade = CascadeType.PERSIST)
+	@ManyToOne
 	private User friend2;
 	
 	@Column(nullable = false)

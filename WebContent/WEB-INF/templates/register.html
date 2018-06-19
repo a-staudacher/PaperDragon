@@ -43,14 +43,14 @@ xmlns="http://www.w3.org/1999/xhtml"
 				
 			
 			
-				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+				<form action="register" method="post" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
 					<span class="login100-form-title">
 						New Account
 					</span>
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
 						<label for="inputEmail" class="sr-only">Email address</label>
-						<input class="input100" id="username" type="text" placeholder="Username" required autofocus name="username">
+						<input class="input100" id="username" type="text" placeholder="Username" required autofocus name="userName">
 						<span class="focus-input100"></span>
 					</div>
 					
@@ -63,10 +63,10 @@ xmlns="http://www.w3.org/1999/xhtml"
 						<label class="txt1" style="margin-right:2em">Character Gender:</label>
 						
 						<span style="font-size: 20pt"><i class="fa fa-venus fa-lg" aria-hidden="true"></i></span>
-						<input type="radio" name="gender" id="female" style="margin-right:2em">
+						<input type="radio" name="female" id="female" style="margin-right:2em">
 						
 						<span style="font-size: 20pt"><i class="fa fa-mars fa-lg" aria-hidden="true"></i></span>
-						<input type="radio" name="gender" id="male">
+						<input type="radio" name="male" id="male">
 						
 					</div>
 
@@ -99,7 +99,7 @@ xmlns="http://www.w3.org/1999/xhtml"
 						</a>
 					</div>
 					
-	
+				<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
 				</form>
 			</div>
 			
