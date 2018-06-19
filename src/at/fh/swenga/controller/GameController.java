@@ -31,8 +31,8 @@ public class GameController {
 		User user = userRepository.findUser(userName);
 		GameSession gameSession = user.getGameSession();
 		
-		if(gameSession == null)
-			return "forward:gamessesioncreate";
+		//if(gameSession == null)
+			//return "gamesessioncreate";
 		
 		
 		model.addAttribute("user",user);
@@ -44,8 +44,8 @@ public class GameController {
 	public String CreateGameSession(Model model, Authentication authentication) {
 		String userName = authentication.getName();
 		User user = userRepository.findUser(userName);
-		if(user.getGameSession() != null)
-			return "forward:gamessesionview";
+		//if(user.getGameSession() != null)
+			//return "gamesessionview";
 			
 		model.addAttribute("user",user);
 		return "gamesessioncreate";

@@ -29,81 +29,19 @@
 
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0; height: 10px">
         
-        <a href="index.html"><img src="resource/images/img-01.png" alt="IMG" height="166" width="250"></a>
         
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                
-                
-            </div>
-            <!-- /.navbar-header -->
 
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    
-                    <!-- /.dropdown-messages -->
-                </li>
-                <!-- /.dropdown -->
-                
-                <!-- /.dropdown -->
-               
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
-            </ul>
-            <!-- /.navbar-top-links -->
 
-            <div class="navbar-default navbar-static-side" role="navigation">
-                <div class="sidebar-collapse">
-                    <ul class="nav" id="side-menu">
-                        
-                        <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Main</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Character</a>
+		 <!-- include the topBar Page fragment-->
+			<div th:replace="~{includes/topBar :: topBarPage}"></div>
 
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Items</a>
-                        </li>
-                        <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Contacts</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Group</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Create Groupe</span></a>
-                            
-                        </li>
-                    </ul>
-                    <!-- /#side-menu -->
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
-            <!-- /.navbar-static-side -->
+
+	<!-- include the footer Sidebar Page fragment-->
+		<div th:replace="~{includes/sideBar :: sideBarPage}"></div>
+	
+           
         </nav>
+	<!-- include the footer Sidebar Page fragment-->
 
         <div id="page-wrapper">
             <div class="row">
@@ -111,7 +49,7 @@
                     <br>
                     <h1 class="page-header">Group</h1>
 					<h2 class="page-header"> Game Session  <button type="submit" class="btn btn-primary"  style="float: right;" >Leave Group</button></h2>
-					<h3> <span th:text="${gamesession.name}"></span> </h3>
+					<h3> <span th:text="${gamesession} ? ${gamesession.name}"></span> </h3>
 				
                 </div>
                 <!-- /.col-lg-12 -->
@@ -119,7 +57,7 @@
             <!-- /.row -->
             <div class="row">
 			
-                <div class="col-lg-8" style = width:30%>
+                <div class="col-lg-8" style = "width:50%">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-bar-chart-o fa-fw"></i> Friends in Game
@@ -128,14 +66,14 @@
                             </div>
                         </div>
                         <!-- /.panel-heading -->
-                        <div class="panel-body">
+                        <div class="bg-success panel-body">
                             						
 												
                         
                                   <table data-toggle="table" class="table">
 									<thead>
 										<tr>
-											<th data-sortable="true">UserName</th>
+											<th data-sortable="true">User Name</th>
 										</tr>
 										
 									</thead>
@@ -152,19 +90,10 @@
 
 
                     </div>
-                    <!-- /.panel -->
 
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
-                        
-                        <!-- /.panel-heading -->
-                        
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
                 </div>
 				
-				  <div class="col-lg-8" style = width:50%>
+				  <div class="col-lg-8" style = "width:50%; float:right">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-bar-chart-o fa-fw"></i> World Lore
@@ -173,7 +102,7 @@
                             </div>
                         </div>
                         <!-- /.panel-heading -->
-                        <div class="panel-body" th:text="${gamesession.lore}">
+                        <div class="panel-body" style="width: 100%; height: 400px;" th:text="${gamesession} ? ${gamesession.lore}">
 						
 						
 
@@ -183,18 +112,12 @@
                     <!-- /.panel -->
 
                     <!-- /.panel -->
-                    <div class="panel panel-default">
-                        
-                        <!-- /.panel-heading -->
-                        
-                        <!-- /.panel-body -->
-                    </div>
                     <!-- /.panel -->
                 </div>
 				
 				
 				
-								  <div class="col-lg-8" style = width:100%>
+				<div class="col-lg-8" style = "width:50%;float:left">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-bar-chart-o fa-fw"></i> User List
@@ -203,13 +126,13 @@
                             </div>
                         </div>
                         <!-- /.panel-heading -->
-                        <div class="panel-body">
+                        <div class="bg-info panel-body">
 						
                         
                                    <table data-toggle="table" class="table">
 									<thead>
 										<tr>
-											<th data-sortable="true">UserName</th>
+											<th data-sortable="true">User Name</th>
 										</tr>
 										
 									</thead>
@@ -226,9 +149,6 @@
                     <!-- /.panel -->
 
                     <!-- /.panel -->
-                    <div class="panel panel-default">
-
-                    </div>
                         <!-- /.panel-heading -->
                         
                         <!-- /.panel-body -->
