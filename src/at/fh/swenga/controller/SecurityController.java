@@ -98,7 +98,7 @@ public class SecurityController {
 		return "login";
 	}
 	
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	@RequestMapping(value = "/register.html", method = RequestMethod.GET)
 	public String registerPage() {
 		
 		return "register"; //register.html

@@ -17,6 +17,7 @@ import at.fh.swenga.dao.UserRepository;
 import at.fh.swenga.model.BlockModel;
 import at.fh.swenga.model.Character;
 import at.fh.swenga.model.FriendModel;
+import at.fh.swenga.model.User;
  
 @Controller
 public class CharacterController {
@@ -34,7 +35,7 @@ public class CharacterController {
 	UserRepository userRepository;
 	
 	
-	@RequestMapping(value = "/character",method = RequestMethod.GET)
+	@RequestMapping(value = "/characterpage.html",method = RequestMethod.GET)
 	public String characterPage(Model model, Authentication authentication) {
 		String userName = authentication.getName();
 		Character character = characterRepository.findByUserUserName(userName);
@@ -46,21 +47,25 @@ public class CharacterController {
 		return "characterpage";
 	}
 	
-	@RequestMapping(value = "/character",method = RequestMethod.POST)
+	@RequestMapping(value = "/characterpage",method = RequestMethod.POST)
 	public String editCharacter(Model model, Authentication authentication) {
 		//todo: finish this or add Parameters to get.
 		return "characterpage";
 	}
 	
-	@RequestMapping(value = "/contacts")
+	@RequestMapping(value = "/contacts.html")
 	public String contacts(Model model, Authentication authentication) {
 		String userName = authentication.getName();
 		List<FriendModel> friends = friendModelRepository.findByFriend1UserName(userName);
 		List<BlockModel> blocks = blockModelRepository.findByUserUserName(userName);
 		
+		List<User> userList = userRepository.findAll();
+		
+		//anmerkung: user und in html user ebenso deffiniert in th:each
 		model.addAttribute("user",userName);
 		model.addAttribute("friends",friends);
 		model.addAttribute("blocks",blocks);
+		model.addAttribute("userList", userList);
 		
 		return "contacts";
 	}
