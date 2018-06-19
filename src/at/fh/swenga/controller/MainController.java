@@ -55,6 +55,11 @@ public class MainController {
 		model.addAttribute("gameSession",user.getGameSession());
 		return "index";
 	}
+	
+	@RequestMapping(value="/index.html",method = RequestMethod.GET)
+	public String index2(Model model, Authentication authentication) {
+		return index(model,authentication);
+	}
  
 	/*
 	@ExceptionHandler(Exception.class)

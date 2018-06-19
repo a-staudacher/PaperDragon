@@ -25,7 +25,7 @@ public class GameController {
 	@Autowired
 	UserRepository userRepository;
 	
-	@RequestMapping("/gamesessionview")
+	@RequestMapping("/gamesessionview.html")
 	public String ViewGameSession(Model model, Authentication authentication) {
 		String userName = authentication.getName();
 		User user = userRepository.findUser(userName);
@@ -40,7 +40,7 @@ public class GameController {
 		return "gamesessionview";
 	}
 	
-	@RequestMapping(value="/gamesessioncreate",method = RequestMethod.GET)
+	@RequestMapping(value="/gamesessioncreate.html",method = RequestMethod.GET)
 	public String CreateGameSession(Model model, Authentication authentication) {
 		String userName = authentication.getName();
 		User user = userRepository.findUser(userName);
