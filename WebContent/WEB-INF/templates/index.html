@@ -245,16 +245,15 @@
                                     <div class="table-responsive">
                                         <table class="table table-bordered table-hover table-striped" th:if="${gameSession}">
                                             <thead>
-                                                <tr>
-                                                    <th>#</th>
-                                                    <th th:text="${gameSession.name}">Name of Gamesession</th>
-                                                    <th>Friends Online</th>
+                                                <tr> 
+                                                    <th>Name of Gamesession</th>
+                                                    <th>Members Online</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr th:each="user : ${gameSession.users}">
-                                                	<td th:text="${user.userName}">User Name</td>
-		  											<td th:text="${user.userName}">Nachricht</td>
+                                               	<td th:text="${gameSession.name}"></td>
+                                                <td th:text="${user.userName}"></td>>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -264,12 +263,12 @@
                                 <!-- /.col-lg-4 (nested) -->
                                 <div class="col-lg-8">
                                     <div id="morris-bar-chart" style="position: relative;"><div class="morris-hover morris-default-style" style="left: 415.596px; top: 138px; display: none;"><div class="morris-hover-row-label">2012</div><div class="morris-hover-point" style="color: #0b62a4">
-  Series A:
-  100
-</div><div class="morris-hover-point" style="color: #7a92a3">
-  Series B:
-  90
-</div></div></div>
+							  Series A:
+							  100
+							</div><div class="morris-hover-point" style="color: #7a92a3">
+							  Series B:
+							  90
+							</div></div></div>
                                 </div>
                                 <!-- /.col-lg-8 (nested) -->
                             </div>
