@@ -38,6 +38,9 @@ public class DocumentModel implements java.io.Serializable {
 	
 	@OneToOne(mappedBy="picture")
 	private User user;
+	
+	@OneToOne(mappedBy="picture")
+	private GameSession gameSession;
  
 	@Version
 	long version;

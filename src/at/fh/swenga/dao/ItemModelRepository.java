@@ -12,6 +12,6 @@ import at.fh.swenga.model.ItemModel;
 @Repository
 @Transactional
 public interface ItemModelRepository extends JpaRepository<ItemModel, Integer> {
-	List<ItemModel> findByItemBaseItemTypeType(String type);
-	
+	List<ItemModel> findByItemBaseItemTypeTypeAndCharacterUserUserName(String type, String userName);
+	List<ItemModel> findByEquippedAndCharacterUserUserName(boolean equipped, String userName);
 }

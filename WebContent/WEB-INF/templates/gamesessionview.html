@@ -84,7 +84,7 @@
 
 								<tbody>
 									<tr th:each="user : ${gameSession.users}">
-										<td th:text="${user.userName}">User Name</td>
+										<td><a th:text="${user.userName}" th:href="'characterview.html?'+'name='+${user.userName}"></a></td>
 
 
 									</tr>
@@ -102,6 +102,7 @@
 							th:src="${gameSession.picture} ? @{'data:image/jpeg;base64,'+*{T(org.springframework.util.Base64Utils).encodeToString(gameSession.picture.content)}} : 'https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg'"
 							id="profile-image1" class="img-circle img-responsive" style="float:right;width: 200px">
 					<input type="file" id="my_file" name="my_file" accept="image/*" style="margin-left:60%; float:right"/>
+					<button style="margin-left:60%; margin-right:15%; float:right">Upload</button>
 					</form>
 
 
@@ -145,7 +146,7 @@
 
 								<tbody>
 									<tr th:each="user : ${userList}">
-										<td th:text="${user.userName}">User Name</td>
+										<td><a th:text="${user.userName}" th:href="'characterview.html?'+'name='+${user.userName}"></a></td>
 										<td><a class="btn btn-danger"
 											th:href="@{/addMember(name=${user.userName})}"
 											style="float: right">ADD</a></td>

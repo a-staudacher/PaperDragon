@@ -76,7 +76,7 @@
 
 								<tbody>
 									<tr th:each="friend : ${friends}">
-										<td th:text="${friend.friend2.userName}">User Name</td>
+										<td><a th:text="${friend.friend2.userName}" th:href="'characterview.html?'+'name='+${friend.friend2.userName}"></a></td>
 										<td><a class="btn btn-danger"
 											th:href="@{/removeFriend(name=${friend.friend2.userName})}"
 											style="float: right">Delete</a></td>
@@ -116,7 +116,7 @@
 
 								<tbody>
 									<tr th:each="block : ${blocks}">
-										<td th:text="${block.blockedUser.userName}">User Name</td>
+										<td><a th:text="${block.blockedUser.userName}" th:href="'characterview.html?'+'name='+${block.blockedUser.userName}"></a></td>
 										<td><a class="btn btn-danger"
 											th:href="@{/removeBlock(name=${block.blockedUser.userName})}"
 											style="float: right">Delete</a></td>
@@ -158,6 +158,7 @@
 								<tbody>
 									<tr th:each="user : ${userList}">
 										<td th:text="${user.userName}">User Name</td>
+										<td><a th:text="${user.userName}" th:href="'characterview.html?'+'name='+${user.userName}"></a></td>
 										<td>	
 											 <a class="btn btn-danger" sec:authorize="hasRole('ROLE_ADMIN')"
 											th:text="${user.enabled} ? 'Ban' : 'Unban'"

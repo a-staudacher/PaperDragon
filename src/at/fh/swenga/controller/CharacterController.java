@@ -15,10 +15,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import at.fh.swenga.dao.BlockModelRepository;
 import at.fh.swenga.dao.CharacterRepository;
 import at.fh.swenga.dao.FriendModelRepository;
+import at.fh.swenga.dao.ItemModelRepository;
 import at.fh.swenga.dao.UserRepository;
 import at.fh.swenga.model.BlockModel;
 import at.fh.swenga.model.Character;
 import at.fh.swenga.model.FriendModel;
+import at.fh.swenga.model.ItemModel;
 import at.fh.swenga.model.User;
  
 @Controller
@@ -26,6 +28,9 @@ public class CharacterController {
 		
 	@Autowired
 	CharacterRepository characterRepository;
+	
+	@Autowired
+	ItemModelRepository itemModelRepository;
 	
 	@Autowired
 	FriendModelRepository friendModelRepository;
@@ -42,18 +47,92 @@ public class CharacterController {
 		String userName = authentication.getName();
 		Character character = characterRepository.findByUserUserName(userName);
 		
+		ItemModel helmet = null;
+		ItemModel chestArmor = null;
+		ItemModel armArmor = null;
+		ItemModel legArmor = null;
+		ItemModel weapon = null;
+		
+		for(ItemModel item : itemModelRepository.findByEquippedAndCharacterUserUserName(true,userName))
+		{
+			switch(item.getItemBase().getItemType().getType())
+			{
+				case "helmet": 
+					helmet = item;
+					break;
+				case "chestArmor": 
+					chestArmor = item;
+					break;
+				case "armArmor": 
+					armArmor = item;
+					break;
+				case "legArmor": 
+					legArmor = item;
+					break;
+				case "weapon": 
+					weapon = item;
+					break;	
+			}
+		}
+		
 		model.addAttribute("user",userRepository.findUser(userName));
 		model.addAttribute("character",character);
+		
+		model.addAttribute("helmet",helmet);
+		model.addAttribute("chestArmor",chestArmor);
+		model.addAttribute("armArmor",armArmor);
+		model.addAttribute("legArmor",legArmor);
+		model.addAttribute("weapon",weapon);
 		//characterRepository;
 		
 		return "characterpage";
 	}
-	
-	@RequestMapping(value = "/characterpage",method = RequestMethod.POST)
-	public String editCharacter(Model model, Authentication authentication) {
-		//todo: finish this or add Parameters to get.
-		return "characterpage";
+
+	@RequestMapping(value = "/characterview.html",method = RequestMethod.GET)
+	public String characterPage(Model model, Authentication authentication, @RequestParam String name) {
+		Character character = characterRepository.findByUserUserName(name);
+		
+		ItemModel helmet = null;
+		ItemModel chestArmor = null;
+		ItemModel armArmor = null;
+		ItemModel legArmor = null;
+		ItemModel weapon = null;
+		
+		for(ItemModel item : itemModelRepository.findByEquippedAndCharacterUserUserName(true,name))
+		{
+			switch(item.getItemBase().getItemType().getType())
+			{
+				case "helmet": 
+					helmet = item;
+					break;
+				case "chestArmor": 
+					chestArmor = item;
+					break;
+				case "armArmor": 
+					armArmor = item;
+					break;
+				case "legArmor": 
+					legArmor = item;
+					break;
+				case "weapon": 
+					weapon = item;
+					break;	
+			}
+		}
+		
+		model.addAttribute("user",userRepository.findUser(name));
+		model.addAttribute("character",character);
+		
+		model.addAttribute("helmet",helmet);
+		model.addAttribute("chestArmor",chestArmor);
+		model.addAttribute("armArmor",armArmor);
+		model.addAttribute("legArmor",legArmor);
+		model.addAttribute("weapon",weapon);
+		//characterRepository;
+		
+		return "characterview";
 	}
+
 	
 	@RequestMapping(value = "/contacts.html")
 	public String contacts(Model model, Authentication authentication) {
@@ -269,8 +348,16 @@ public class CharacterController {
 	}
 	
 	@RequestMapping(value = "/getExcel")
-	public String updateLore(Model model, Authentication authentication) {
+	public String getExcel(Model model, Authentication authentication) {
 		Character character = userRepository.findUser(authentication.getName()).getCharacter();
+		model.addAttribute("character", character);
+		
+		return "excelReport";		
+	}
+	
+	@RequestMapping(value = "/getExcelFromOther")
+	public String getExcelFromOther(Model model, Authentication authentication, @RequestParam String user) {
+		Character character = userRepository.findUser(user).getCharacter();
 		model.addAttribute("character", character);
 		
 		return "excelReport";		
