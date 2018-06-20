@@ -3,6 +3,7 @@ package at.fh.swenga.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -82,7 +83,18 @@ public class CharacterController {
 		}
 		
 		return contacts(model,authentication);
+	}	
+	
+	@Secured("ROLE_ADMIN")
+	@RequestMapping(value = "/banUser")
+	public String banUser(Model model, Authentication authentication, @RequestParam String name) {
+		User user = userRepository.findUser(name);
+		user.setEnabled(!user.isEnabled());
+		userRepository.save(user);
+		
+		return contacts(model,authentication);
 	}
+	
 	
 	@RequestMapping(value = "/removeFriend")
 	public String removeFriend(Model model, Authentication authentication, @RequestParam String name) {

@@ -158,11 +158,18 @@
 								<tbody>
 									<tr th:each="user : ${userList}">
 										<td th:text="${user.userName}">User Name</td>
-										<td><a class="btn btn-danger"
+										<td>	
+											 <a class="btn btn-danger" sec:authorize="hasRole('ROLE_ADMIN')"
+											th:text="${user.enabled} ? 'Ban' : 'Unban'"
+											th:href="@{/banUser(name=${user.userName})}"
+											style="float: right">Ban</a>
+											<a class="btn btn-warning"
 											th:href="@{/addBlock(name=${user.userName})}"
-											style="float: right">Block</a> <a class="btn btn-success"
+											style="float: right">Block</a> 
+											<a class="btn btn-success"
 											th:href="@{/addFriend(name=${user.userName})}"
-											style="float: right">Friend</a></td>
+											style="float: right">Friend</a>
+										   </td>
 
 									</tr>
 								</tbody>
