@@ -65,7 +65,7 @@ public class ItemBaseModel implements java.io.Serializable {
 	@ManyToOne (cascade = CascadeType.PERSIST)
 	private Rarity rarity;
 
-	@ManyToOne (cascade = CascadeType.PERSIST)
+	@ManyToOne
 	private ItemType itemType;
 	
 	public ItemBaseModel() {}

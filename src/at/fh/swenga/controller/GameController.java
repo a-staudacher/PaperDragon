@@ -85,6 +85,21 @@ public class GameController {
 	
 		return ViewGameSession(model,authentication);
 	}
+	
+	@RequestMapping(value="/leaveGroup")
+	public String leaveGroup(Model model, Authentication authentication) {
+		
+		String userName = authentication.getName();
+		User user = userRepository.findUser(userName);
+		GameSession gameSession = user.getGameSession();
+		user.setGameSession(null);
+		userRepository.save(user);
+		
+		if(gameSession.getUsers()==null || gameSession.getUsers().isEmpty())
+			gameSessionRepository.delete(gameSession);
+	
+		return CreateGameSession(model,authentication);
+	}
  
 	@ExceptionHandler(Exception.class)
 	public String handleAllException(Exception ex) {
