@@ -355,17 +355,17 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                         	<div th:if="${gameSession}">
-                        		<table data-toggle="table" class="table table-striped">
+                        		<table data-toggle="table" class="table table-hover">
 									<thead>
 										<tr>
-											<th data-sortable="true">UserName</th>
-											<th data-sortable="true">Nachricht</th>
-											<th data-sortable="true">Zeit</th>
+											<th>UserName</th>
+											<th>Nachricht</th>
+											<th>Zeit</th>
 										</tr>
 									</thead>
 									<tbody>
                             			<tr th:each="line : ${gameSession.chatLines}">
-  											<td th:text="${line.user.userName}">User Name</td>
+  											<td th:text="${line.user.userName} +':'" >User Name</td>
   											<td th:text="${line.text}">Nachricht</td>
   											<td th:text="${line.date}">Zeit</td> 								
 										</tr>
@@ -377,12 +377,13 @@
                         <div class="panel-footer">
                             <div class="input-group">
                             	<form method="post" th:action="@{/chat}">
-                                <input id="btn-input" type="text" class="form-control input-sm" name="text" placeholder="Type your message here...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-warning btn-sm" id="btn-chat">
+                                <input id="btn-input" type="text" class="form-control input-sm" name="text" placeholder="Type your message here..." style="width:93%" >
+                                <span class="input-group-btn" style="float:right">
+                                    <button class="btn btn-warning btn-sm" id="btn-chat" >
                                         Send
                                     </button>
                                 </span>
+                                </form>
                             </div>
                         </div>
                         <!-- /.panel-footer -->
