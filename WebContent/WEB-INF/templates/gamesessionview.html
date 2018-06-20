@@ -96,6 +96,15 @@
 					</div>
 
 				</div>
+					<!--Upload Image-->
+					<form th:action="@{'/uploadGamePic' +'?' + ${_csrf.parameterName} + '=' + ${_csrf.token}}" enctype="multipart/form-data" method="post">
+						<input type="image"
+							th:src="${gameSession.picture} ? @{'data:image/jpeg;base64,'+*{T(org.springframework.util.Base64Utils).encodeToString(gameSession.picture.content)}} : 'https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg'"
+							id="profile-image1" class="img-circle img-responsive" style="float:right;width: 200px">
+					<input type="file" id="my_file" name="my_file" accept="image/*" style="margin-left:60%; float:right"/>
+					</form>
+
+
 
 				<div class="col-lg-8" style="width: 50%; float: right">
 					<div class="panel panel-default">
