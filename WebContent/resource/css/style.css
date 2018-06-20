@@ -1,0 +1,273 @@
+
+		body {
+				background-image: url("./pics/Weltpanorama-night.jpg");
+				background-repeat: repeat-x;
+				background-size: cover;
+				background-attachment: fixed;
+				background-position: center;
+				margin: auto;
+				text-align: center;
+                font-family: 'Overlock SC', cursive;
+                font-family: 'Asul', sans-serif;
+                        
+			 }
+
+		h1 {
+				color: white;
+				text-align: center;		
+                font-size: 2vw;
+                text-shadow: -1px 0 black, 0 1px black,
+                1px 0 black, 0 -1px black;
+		   }
+
+        h2 {
+				color:#e63428;
+				text-align: center;		
+                font-size: 4vw;
+                word-spacing: 10px;
+                text-shadow: -1px 0 black, 0 1px black,
+                1px 0 black, 0 -1px black;
+            
+                padding-left:16px;
+	            background:url(../resources/pics/3.jpg) 1 1 no-repeat;    /*background:url(../resources/pics/3.jpg) 1 1 no-repeat;  OHNE ROTEN BALKEN  */
+  
+            }
+       
+        h2 span {
+	               background:url(../resources/pics/3.jpg);
+                }
+     
+
+        h3{
+				color: white;
+				text-align: left;		
+                font-size: 2vw;
+                text-shadow: -1px 0 black, 0 1px black,
+                1px 0 black, 0 -1px black;
+         }
+
+		p {
+                color: white;
+                text-align: left;
+                font-size: 2vw;
+                text-shadow: -1px 0 black, 0 1px black,
+                1px 0 black, 0 -1px black;
+		  }
+        
+        .para2{
+                color: white;
+                text-align: center;
+                font-size: 2vw;
+                text-shadow: -1px 0 black, 0 1px black,
+                1px 0 black, 0 -1px black;
+                text-decoration: underline;
+          }
+
+
+.home   {
+			float: left;
+		}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    background-color: #5D8351;
+    height: 60%;
+    font-size: 1vw;
+}
+
+li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+li a:hover {
+    background-color: #555;
+    color: white;
+}
+
+.headline {
+	background-color: #33632E;
+    color: white;
+}
+
+#myAudio {
+	position: absolute;
+    top: 8px;
+    right: 16px;
+    height:3%;
+    width:15%;
+}
+#myAudio2 {
+	position: absolute;
+    top: 150px;
+    right: 670px;
+    height:100%;
+    width:30%;
+}
+footer {
+    position: fixed;
+    color: lightgrey;
+    background-color: rgba(160, 160, 160, 0.3);
+    font-size: 1em;
+    bottom: 0;
+    left: 0;
+    width:100%;
+    text-align: left;
+    padding-left: 200px;   
+}
+
+
+.content{   
+    color: white;
+    width: 70%;
+    background: rgba(0, 0, 0, 0.7);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    display: block;
+    
+}
+
+nav{
+ position: fixed;
+ left: 0;
+ float: left;
+ width: 20%;
+ top: 20%;
+}
+
+
+.main{
+        font-size: 15pt;
+        padding-left: 2%;
+        padding-right: 2%;
+        text-align: center;
+}
+
+.main2{
+        font-size: 20pt;
+        padding-left: 2%;
+        padding-right: 7%;
+        text-align: center;
+}
+
+.box1{
+    border: 5px solid rgb(51, 0, 0);
+    border-collapse: collapse;
+    padding: 15px;
+    width: 90%;
+    border: 0;
+}
+
+.box2{
+    border: 5px solid rgb(51, 0, 0);
+    border-collapse: collapse;
+    padding: 15px;
+    background-color: #330000;
+}
+
+.box3{
+    border: 5px solid rgb(51, 0, 0);
+    border-collapse: collapse;
+    padding: 15px;
+    width: 100%; 
+    border: 0;
+}
+
+.box4{
+    border: 5px solid rgb(51, 0, 0);
+    border-collapse: collapse;
+    padding: 15px;
+    width: 33%; 
+    text-align: center; 
+    vertical-align: middle;
+}
+
+.box5{
+    border: 5px solid rgb(51, 0, 0);
+    border-collapse: collapse;
+    padding: 15px;
+    width: 33%; 
+    vertical-align: top; 
+    text-align: left;
+}
+
+
+
+.boxblack{
+    background-color: #000000;
+}
+
+#contentwindow
+{
+	margin-bottom:20px;
+    padding:5px;
+	width:90%;
+    padding-left: 10%;
+}
+
+.image_normal{
+    border: 0;
+}
+
+#hintergrund{
+    position:static;
+       
+}
+
+.new{
+   list-style: unset; 
+}
+
+img.image140{
+    float: left;
+    height: auto; 
+}
+
+img.glow{
+    box-shadow: 0px 0px 5px #fff; 
+    height: auto; 
+}
+
+.normal{
+    padding: 5px 5px 5px 5px;
+    margin-right: 50px;
+    margin-left: 50px;     
+}
+
+img.logoFH{
+  padding: 5px;
+  width:30%;  
+  box-shadow: 0px 0px 5px #fff;
+}
+
+img.source_img{
+  padding: 5px;
+  width:3%;  
+  box-shadow: 0px 0px 5px #fff;
+}
+
+section.Autor {
+  text-align: center; 
+}
+
+div.headlinie{   
+    background: url('../resources/pics/feuer04.jpg') no-repeat ; 
+    display: inline-block;
+    background-position: 0px bottom;
+    background-repeat: repeat-x;   
+}
+
+video.imVideo{    
+    width:70%;
+}
+

@@ -14,6 +14,7 @@
 		<intercept-url pattern="/login" access="permitAll" />
 		<intercept-url pattern="/fillUsers" access="permitAll" />
 		<intercept-url pattern="/resource/**" access="permitAll" />
+		<intercept-url pattern="/impressum.html" access="permitAll" />
 		<intercept-url pattern="/register.html" access="permitAll" />
 		<intercept-url pattern="/register" access="permitAll" />
 	

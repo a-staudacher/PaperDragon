@@ -19,7 +19,7 @@ public class ItemController {
 	@Autowired
 	UserRepository userRepository;
 		
-	@RequestMapping(value = "/itemlist.html")
+	@RequestMapping(value = "/itemarchive.html")
 	public String itemArchive(Model model, Authentication authentication) {
 		model.addAttribute("user",userRepository.findUser(authentication.getName()));
 		model.addAttribute("items",itemBaseModelRepository.findAll());
