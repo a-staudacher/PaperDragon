@@ -1,194 +1,185 @@
 <!DOCTYPE html>
-<html lang="en"
-xmlns="http://www.w3.org/1999/xhtml"
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Paper Dragon </title>
+<title>Paper Dragon</title>
 
-    <!-- Core CSS - Include with every page -->
-    <link href="resource/css/bootstrap.min.css" rel="stylesheet">
-    <link href="resource/font-awesome/css/font-awesome.css" rel="stylesheet">
+<!-- Core CSS - Include with every page -->
+<link href="resource/css/bootstrap.min.css" rel="stylesheet">
+<link href="resource/font-awesome/css/font-awesome.css" rel="stylesheet">
 
-    <!-- Page-Level Plugin CSS - Dashboard -->
-    <link href="resource/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
-    <link href="resource/css/plugins/timeline/timeline.css" rel="stylesheet">
+<!-- Page-Level Plugin CSS - Dashboard -->
+<link href="resource/css/plugins/morris/morris-0.4.3.min.css"
+	rel="stylesheet">
+<link href="resource/css/plugins/timeline/timeline.css" rel="stylesheet">
 
-    <!-- SB Admin CSS - Include with every page -->
-    <link href="resource/css/sb-admin.css" rel="stylesheet">
+<!-- SB Admin CSS - Include with every page -->
+<link href="resource/css/sb-admin.css" rel="stylesheet">
 
 </head>
 
 <body style="">
 
-    <div id="wrapper">
+	<div id="wrapper">
 
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0; height: 10px">
-        
-        
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation"
+			style="margin-bottom: 0; height: 10px">
 
 
-		 <!-- include the topBar Page fragment-->
+
+
+			<!-- include the topBar Page fragment-->
 			<div th:replace="~{includes/topBar :: topBarPage}"></div>
 
 
-	<!-- include the footer Sidebar Page fragment-->
-		<div th:replace="~{includes/sideBar :: sideBarPage}"></div>
-	
-           
-        </nav>
-	<!-- include the footer Sidebar Page fragment-->
-
-        <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <br>
-                    <h1 class="page-header">Group</h1>
-					<h2 class="page-header"> Game Session  <a class="btn btn-primary" href="leaveGroup"  style="float: right;" >Leave Group</a></h2>
-					<h3> <span th:text="${gameSession} ? ${gameSession.name}"></span> </h3>
-				
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            <div class="row">
-			
-                <div class="col-lg-8" style = "width:50%">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Friends in Game
-                            <div class="pull-right">
-                                
-                            </div>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="bg-success panel-body">
-                            						
-												
-                        
-                                  <table data-toggle="table" class="table">
-									<thead>
-										<tr>
-											<th data-sortable="true">User Name</th>
-										</tr>
-										
-									</thead>
-									
-									<tbody>
-                            			<tr th:each="user : ${gameSession.users}">
-  											<td th:text="${user.userName}">User Name</td>
-											
-											
-										</tr>
-									</tbody>
-								</table>
-                        </div>
+			<!-- include the footer Sidebar Page fragment-->
+			<div th:replace="~{includes/sideBar :: sideBarPage}"></div>
 
 
-                    </div>
+		</nav>
+		<!-- include the footer Sidebar Page fragment-->
 
-                </div>
-				
-				  <div class="col-lg-8" style = "width:50%; float:right">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> World Lore
-                            <div class="pull-l">
-                              
-                            </div>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body" style="width: 100%; height: 400px;" th:text="${gameSession} ? ${gameSession.lore}">
-						
-						
+		<div id="page-wrapper">
+			<div class="row">
+				<div class="col-lg-12">
+					<br>
+					<h1 class="page-header">Group</h1>
+					<h2 class="page-header">
+						Game Session <a class="btn btn-primary" href="leaveGroup"
+							style="float: right;">Leave Group</a>
+					</h2>
+					<h3>
+						<span th:text="${gameSession} ? ${gameSession.name}"></span>
+					</h3>
+
+				</div>
+				<!-- /.col-lg-12 -->
+			</div>
+			<!-- /.row -->
+			<div class="row">
+
+				<div class="col-lg-8" style="width: 50%">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<i class="fa fa-bar-chart-o fa-fw"></i> Friends in Game
+							<div class="pull-right"></div>
+						</div>
+						<!-- /.panel-heading -->
+						<div class="bg-success panel-body">
+
+
+
+							<table data-toggle="table" class="table">
+								<thead>
+									<tr>
+										<th data-sortable="true">User Name</th>
+									</tr>
+
+								</thead>
+
+								<tbody>
+									<tr th:each="user : ${gameSession.users}">
+										<td th:text="${user.userName}">User Name</td>
+
+
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+
+					</div>
+
+				</div>
+
+				<div class="col-lg-8" style="width: 50%; float: right">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<i class="fa fa-bar-chart-o fa-fw"></i> World Lore
+							<div class="pull-l"></div>
+						</div>
+						<!-- /.panel-heading -->
+						<div class="panel-body" style="width: 100%; height: 400px;"
+							th:text="${gameSession} ? ${gameSession.lore}"></div>
+						<!-- /.panel-body -->
+					</div>
+					<!-- /.panel -->
+
+					<!-- /.panel -->
+					<!-- /.panel -->
+				</div>
+
+
+
+				<div class="col-lg-8" style="width: 50%; float: left">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<i class="fa fa-bar-chart-o fa-fw"></i> User List
+							<div class="pull-l"></div>
+						</div>
+						<!-- /.panel-heading -->
+						<div class="bg-info panel-body">
+
+
+							<table data-toggle="table" class="table">
+								<thead>
+									<tr>
+										<th data-sortable="true">User Name</th>
+									</tr>
+
+								</thead>
+
+								<tbody>
+									<tr th:each="user : ${userList}">
+										<td th:text="${user.userName}">User Name</td>
+										<td><a class="btn btn-danger"
+											th:href="@{/addMember(name=${user.userName})}"
+											style="float: right">ADD</a></td>
+									</tr>
+								</tbody>
+							</table>
 
 						</div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
+						<!-- /.panel -->
 
-                    <!-- /.panel -->
-                    <!-- /.panel -->
-                </div>
-				
-				
-				
-				<div class="col-lg-8" style = "width:50%;float:left">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> User List
-                            <div class="pull-l">
-                              
-                            </div>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="bg-info panel-body">
-						
-                        
-                                   <table data-toggle="table" class="table">
-									<thead>
-										<tr>
-											<th data-sortable="true">User Name</th>
-										</tr>
-										
-									</thead>
-									
-									<tbody>
-                            			<tr th:each="user : ${userList}">
-  											<td th:text="${user.userName}">User Name</td>
-											<td> <a class="btn btn-danger" th:href="@{/addMember(name=${user.userName})}"style = float:right>ADD</a> </td>				
-										</tr>
-									</tbody>
-								</table>
+						<!-- /.panel -->
+						<!-- /.panel-heading -->
 
-                        </div>
-                    <!-- /.panel -->
-
-                    <!-- /.panel -->
-                        <!-- /.panel-heading -->
-                        
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-8 -->
-                <!-- /.col-lg-4 -->
-            </div>
-			
-			<div>
-                        		
+						<!-- /.panel-body -->
+					</div>
+					<!-- /.panel -->
+				</div>
+				<!-- /.col-lg-8 -->
+				<!-- /.col-lg-4 -->
 			</div>
-            <!-- /.row -->
-        </div>
-        <!-- /#page-wrapper -->
 
-    </div>
-    <!-- /#wrapper -->
+			<div></div>
+			<!-- /.row -->
+		</div>
+		<!-- /#page-wrapper -->
 
-    <!-- Core Scripts - Include with every page -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	</div>
+	<!-- /#wrapper -->
 
-    <!-- Page-Level Plugin Scripts - Dashboard -->
-    <script src="js/plugins/morris/raphael-2.1.0.min.js"></script>
-    <script src="js/plugins/morris/morris.js"></script>
+			<!-- Core Scripts - Include with every page -->
+			<script src="resource/js/jquery-1.10.2.js"></script>
+			<script src="resource/js/bootstrap.min.js"></script>
+			<script src="resource/js/plugins/metisMenu/jquery.metisMenu.js"></script>
 
-    <!-- SB Admin Scripts - Include with every page -->
-    <script src="js/sb-admin.js"></script>
+			<!-- Page-Level Plugin Scripts - Flot -->
+			<!--[if lte IE 8]><script src="js/excanvas.min.js"></script><![endif]-->
+			<script src="resource/js/plugins/flot/jquery.flot.js"></script>
+			<script src="resource/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+			<script src="resource/js/plugins/flot/jquery.flot.resize.js"></script>
+			<script src="resource/js/plugins/flot/jquery.flot.pie.js"></script>
 
-    <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
-    <!--<script src="js/demo/dashboard-demo.js"></script>-->
-
-
-
-
-
-
+			<!-- SB Admin Scripts - Include with every page -->
+			<script src="resource/js/sb-admin.js"></script>
 
 </body>
 

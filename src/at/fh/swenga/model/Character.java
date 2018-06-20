@@ -54,7 +54,7 @@ public class Character implements java.io.Serializable {
 	@Column(nullable = false, length = 20)
 	private String gender;
 	
-    @OneToMany(mappedBy="character", fetch=FetchType.LAZY)
+    @OneToMany(mappedBy="character", fetch=FetchType.EAGER)
     private Set<ItemModel> items;
     
     @OneToOne

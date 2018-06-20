@@ -1,160 +1,156 @@
 <!DOCTYPE html>
-<html lang="en"
-xmlns="http://www.w3.org/1999/xhtml"
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Paper Dragon </title>
+<title>Paper Dragon</title>
 
-    <!-- Core CSS - Include with every page -->
-    <link href="resource/css/bootstrap.min.css" rel="stylesheet">
-    <link href="resource/font-awesome/css/font-awesome.css" rel="stylesheet">
+<!-- Core CSS - Include with every page -->
+<link href="resource/css/bootstrap.min.css" rel="stylesheet">
+<link href="resource/font-awesome/css/font-awesome.css" rel="stylesheet">
 
-    <!-- Page-Level Plugin CSS - Dashboard -->
-    <link href="resource/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
-    <link href="resource/css/plugins/timeline/timeline.css" rel="stylesheet">
+<!-- Page-Level Plugin CSS - Dashboard -->
+<link href="resource/css/plugins/morris/morris-0.4.3.min.css"
+	rel="stylesheet">
+<link href="resource/css/plugins/timeline/timeline.css" rel="stylesheet">
 
-    <!-- SB Admin CSS - Include with every page -->
-    <link href="resource/css/sb-admin.css" rel="stylesheet">
+<!-- SB Admin CSS - Include with every page -->
+<link href="resource/css/sb-admin.css" rel="stylesheet">
 
 </head>
 
 <body style="">
 
-    <div id="wrapper">
+	<div id="wrapper">
 
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0; height: 10px">
-        
-        
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation"
+			style="margin-bottom: 0; height: 10px">
 
 
-		 <!-- include the topBar Page fragment-->
+
+
+			<!-- include the topBar Page fragment-->
 			<div th:replace="~{includes/topBar :: topBarPage}"></div>
 
 
-	<!-- include the footer Sidebar Page fragment-->
-		<div th:replace="~{includes/sideBar :: sideBarPage}"></div>
-	
-           
-        </nav>
-	<!-- include the footer Sidebar Page fragment-->
-
-        <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <br>
-                    <h1 class="page-header">Items</h1>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-
-        	<div class="row">    
-            <div> 
-            	<form method="post" th:action="@{/searchitem}">
-            	<table data-toggle="table" class="table table-striped">
-            		<thead>
-						<tr>
-							<th><input id="btn-itemsearch" type="text" class="form-control input-sm" name="text" placeholder="Search for your Item." style="width:93%" ></th>
-							<th><button class="btn btn-info " id="btn-itemsearch" >
-                                        Search
-                                    </button></th>
+			<!-- include the footer Sidebar Page fragment-->
+			<div th:replace="~{includes/sideBar :: sideBarPage}"></div>
 
 
-						</tr>										
-					</thead>									
-					<tbody>
-                        	<tr>    		
-											
+		</nav>
+		<!-- include the footer Sidebar Page fragment-->
+
+		<div id="page-wrapper">
+			<div class="row">
+				<div class="col-lg-12">
+					<br>
+					<h1 class="page-header">Items</h1>
+				</div>
+				<!-- /.col-lg-12 -->
+			</div>
+
+			<div class="row">
+				<div>
+					<form method="post" th:action="@{/searchitem}">
+						<table data-toggle="table" class="table table-striped">
+							<thead>
+								<tr>
+									<th><input id="btn-itemsearch" type="text"
+										class="form-control input-sm" name="text"
+										placeholder="Search for your Item." style="width: 93%"></th>
+									<th><button class="btn btn-info " id="btn-itemsearch">
+											Search</button></th>
+
+
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+
+								</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+
+				<div class="col-md-10 col-md-offset-1">
+
+					<table data-toggle="table" class="table table-striped">
+						<thead>
+							<tr>
+								<th data-sortable="true">Icon</th>
+								<th data-sortable="true">Name</th>
+								<th data-sortable="true">Description</th>
+								<th data-sortable="true">STR</th>
+								<th data-sortable="true">DEX</th>
+								<th data-sortable="true">INT</th>
+								<th data-sortable="true">CON</th>
+								<th data-sortable="true">VIT</th>
+								<th data-sortable="true">WIS</th>
+								<th data-sortable="true">CHA</th>
+								<th data-sortable="true">Price</th>
+								<th>Actions</th>
 							</tr>
-					</tbody>
-				</table>    
-				</form>      	
+						</thead>
+						<tbody>
+							<!--  list all items ----------------------------------------------------------- -->
+							<tr th:each="item : ${items}">
+								<td><img alt="" style="width:50px" th:src="'resource/images/icons/' + ${item.itemType.type} + '.png'"></td>
+								<td th:text="${item.name}"></td>
+								<td th:text="${item.text}"></td>
+								<td th:text="${item.strength}"></td>
+								<td th:text="${item.dexterity}"></td>
+								<td th:text="${item.inteligenz}"></td>
+								<td th:text="${item.constitution}"></td>
+								<td th:text="${item.vitality}"></td>
+								<td th:text="${item.wisdom}"></td>
+								<td th:text="${item.charisma}"></td>
+								<td th:text="${item.price}"></td>
+
+								<td><a th:href="@{/addItem(id=${item.id})}"
+									class="btn btn-xs btn-warning"> <span
+										class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+										Add Item
+								</a></td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+				<!-- /.row -->
 			</div>
-
-			<div class="col-md-10 col-md-offset-1">
-
-				<table data-toggle="table" class="table table-striped">
-					<thead>
-						<tr>
-							<th data-sortable="true">Icon</th>
-							<th data-sortable="true">Name</th>
-							<th data-sortable="true">Description</th>
-							<th data-sortable="true">STR</th>
-							<th data-sortable="true">DEX</th>
-							<th data-sortable="true">INT</th>
-							<th data-sortable="true">CON</th>
-							<th data-sortable="true">VIT</th>
-							<th data-sortable="true">WIS</th>
-							<th data-sortable="true">CHA</th>
-							<th data-sortable="true">Price</th>
-							<th>Actions</th>
-						</tr>
-					</thead>
-					<tbody>
-						<!--  list all items ----------------------------------------------------------- -->
-						<tr th:each="item : ${items}">
-							<td th:text="${item.itemType.type} + '.png'"></td>
-							<td th:text="${item.name}"></td>
-							<td th:text="${item.text}"></td>
-							<td th:text="${item.strength}"></td>
-							<td th:text="${item.dexterity}"></td>
-							<td th:text="${item.inteligenz}"></td>
-							<td th:text="${item.constitution}"></td>
-							<td th:text="${item.vitality}"></td>
-							<td th:text="${item.wisdom}"></td>
-							<td th:text="${item.charisma}"></td>
-							<td th:text="${item.price}"></td>
-
-							<td>
-								<a th:href="@{/addItem(id=${item.id})}" class="btn btn-xs btn-warning">
-									<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-									Add Item
-								</a>
-
-							</td>
-						</tr>
-						
-					</tbody>
-				</table>
-			</div>
-			                        <!-- /.row -->
 		</div>
+
+
+		<div></div>
+		<!-- /.row -->
 	</div>
-			            
+	<!-- /#page-wrapper -->
 
-			<div>
-                        		
-			</div>
-            <!-- /.row -->
-        </div>
-        <!-- /#page-wrapper -->
+	<!-- /#wrapper -->
 
-    <!-- /#wrapper -->
+			<!-- Core Scripts - Include with every page -->
+			<script src="resource/js/jquery-1.10.2.js"></script>
+			<script src="resource/js/bootstrap.min.js"></script>
+			<script src="resource/js/plugins/metisMenu/jquery.metisMenu.js"></script>
 
-    <!-- Core Scripts - Include with every page -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+			<!-- Page-Level Plugin Scripts - Flot -->
+			<!--[if lte IE 8]><script src="js/excanvas.min.js"></script><![endif]-->
+			<script src="resource/js/plugins/flot/jquery.flot.js"></script>
+			<script src="resource/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+			<script src="resource/js/plugins/flot/jquery.flot.resize.js"></script>
+			<script src="resource/js/plugins/flot/jquery.flot.pie.js"></script>
 
-    <!-- Page-Level Plugin Scripts - Dashboard -->
-    <script src="js/plugins/morris/raphael-2.1.0.min.js"></script>
-    <script src="js/plugins/morris/morris.js"></script>
-
-    <!-- SB Admin Scripts - Include with every page -->
-    <script src="js/sb-admin.js"></script>
-
-    <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
-    <!--<script src="js/demo/dashboard-demo.js"></script>-->
+			<!-- SB Admin Scripts - Include with every page -->
+			<script src="resource/js/sb-admin.js"></script>
 
 
 
-
-
-
+	<div th:replace="~{includes/bootstrap :: bootstrapJS}" />
 
 </body>
 

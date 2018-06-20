@@ -7,11 +7,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import at.fh.swenga.dao.CharacterRepository;
 import at.fh.swenga.dao.ItemBaseModelRepository;
+import at.fh.swenga.dao.ItemModelRepository;
 import at.fh.swenga.dao.ItemTypeRepository;
 import at.fh.swenga.dao.UserRepository;
+import at.fh.swenga.model.Character;
 import at.fh.swenga.model.ItemBaseModel;
+import at.fh.swenga.model.ItemModel;
 import at.fh.swenga.model.ItemType;
  
 @Controller
@@ -21,10 +26,16 @@ public class ItemController {
 	ItemBaseModelRepository itemBaseModelRepository;
 	
 	@Autowired
+	ItemModelRepository itemModelRepository;
+	
+	@Autowired
 	UserRepository userRepository;
 	
 	@Autowired
 	ItemTypeRepository itemTypeRepository;
+	
+	@Autowired
+	CharacterRepository characterRepository;
 		
 	@RequestMapping(value = "/itemarchive.html")
 	public String itemArchive(Model model, Authentication authentication) {
@@ -189,7 +200,7 @@ public class ItemController {
 		
 		return "itemarchive";
 	}
-	
+
 	private ItemBaseModel genItem(String name, String lore, ItemType type)
 	{
 		double chanceToStat = 3;
@@ -207,6 +218,94 @@ public class ItemController {
 		
 		return item;
 	}
+	
+	@RequestMapping(value = "/addItem")
+	public String addItemToInventory(Model model, Authentication authentication, @RequestParam int id) {
+		
+		String userName = authentication.getName();
+		Character character = characterRepository.findByUserUserName(userName);
+		
+		if(itemBaseModelRepository.findById(id).isPresent())
+		{
+			ItemBaseModel itemBaseModel = itemBaseModelRepository.findById(id).get();
+			ItemModel itemModel = new ItemModel(1, false, character, itemBaseModel);
+			itemModelRepository.save(itemModel);			
+		}
+		
+		character = characterRepository.findByUserUserName(userName);
+		
+		model.addAttribute("user",userRepository.findUser(userName));
+		model.addAttribute("character",character);
+		
+		
+		return "characterpage";
+	}
+	
+	@RequestMapping(value = "/equipItem")
+	public String equipItem(Model model, Authentication authentication, @RequestParam int id) {
+		
+		String userName = authentication.getName();
+		Character character = characterRepository.findByUserUserName(userName);
+		
+		if(itemModelRepository.findById(id).isPresent())
+		{
+			ItemModel itemModel = itemModelRepository.findById(id).get();
+			String itemType = itemModel.getItemBase().getItemType().getType();
+			
+			for(ItemModel item: itemModelRepository.findByItemBaseItemTypeType(itemType))
+			{
+				if(item.isEquipped()) {
+					item.setEquipped(false);
+					itemModelRepository.save(item);
+				}
+			}
+			
+			
+			
+			
+			itemModel.setEquipped(!itemModel.isEquipped());
+			itemModelRepository.save(itemModel);			
+		}
+		
+		character = characterRepository.findByUserUserName(userName);
+		
+		model.addAttribute("user",userRepository.findUser(userName));
+		model.addAttribute("character",character);
+		
+		
+		return "characterpage";
+	}
+	
+	@RequestMapping(value = "/dropItem")
+	public String dropItem(Model model, Authentication authentication, @RequestParam int id) {
+		
+		String userName = authentication.getName();
+		Character character = characterRepository.findByUserUserName(userName);
+		
+		if(itemModelRepository.findById(id).isPresent())
+		{
+			itemModelRepository.delete(itemModelRepository.findById(id).get());
+		}
+		
+		character = characterRepository.findByUserUserName(userName);
+		
+		model.addAttribute("user",userRepository.findUser(userName));
+		model.addAttribute("character",character);
+		
+		
+		return "characterpage";
+	}
+	
+	@RequestMapping(value = "/searchitem")
+	public String searchItem(Model model, Authentication authentication, @RequestParam String text) {
+		
+		
+		model.addAttribute("items",itemBaseModelRepository.findByNameContainingAllIgnoreCase(text));
+		
+		
+		return "itemarchive";
+	}
+	
  
 	@ExceptionHandler(Exception.class)
 	public String handleAllException(Exception ex) {
