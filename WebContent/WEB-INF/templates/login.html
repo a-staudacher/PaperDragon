@@ -1,140 +1,140 @@
 <!DOCTYPE html>
-<html lang="en"
-xmlns="http://www.w3.org/1999/xhtml"
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">>
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+>
 <head>
 <div th:replace="~{includes/bootstrap :: bootstrapMeta}" />
-	<title>PaperDragon Login</title>
+<title>PaperDragon Login</title>
 <div th:replace="~{includes/bootstrap :: bootstrapCSS}" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="resource/image/png" href="resource/images/icons/favicon.ico"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="resource/vendor/bootstrap/css/bootstrap.min.css">
+<link rel="icon" type="resource/image/png"
+	href="resource/images/icons/favicon.ico" />
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="resource/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css"
+	href="resource/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="resource/vendor/animate/animate.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="resource/vendor/css-hamburgers/hamburgers.min.css">
+<link rel="stylesheet" type="text/css"
+	href="resource/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="resource/vendor/animsition/css/animsition.min.css">
+<link rel="stylesheet" type="text/css"
+	href="resource/vendor/animate/animate.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="resource/vendor/select2/select2.min.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="resource/vendor/daterangepicker/daterangepicker.css">
+<link rel="stylesheet" type="text/css"
+	href="resource/vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="resource/css/util.css">
-	<link rel="stylesheet" type="text/css" href="resource/css/main.css">
+<link rel="stylesheet" type="text/css"
+	href="resource/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="resource/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="resource/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="resource/css/util.css">
+<link rel="stylesheet" type="text/css" href="resource/css/main.css">
 <!--===============================================================================================-->
 </head>
 <body>
-	
+
 	<div class="limiter">
 		<div class="container-login100">
-		
-			<div class="login100-pic js-tilt" data-tilt>
-					<img src="resource/images/img-01.png" alt="IMG">
-				</div>
-				
-				<div class="wrap-login100">
-				
-			
-			
-				<form th:action="@{/login}" method="post" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
-					<span class="login100-form-title">
-						Please Sign In
-					</span>
 
-					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
-						<label for="inputEmail" class="sr-only">Email address</label>
-						<input class="input100" id="username" type="text" placeholder="Username" required autofocus name="username">
-						<span class="focus-input100"></span>
+			<div class="login100-pic js-tilt" data-tilt>
+				<img src="resource/images/img-01.png" alt="IMG">
+			</div>
+
+			<div class="wrap-login100">
+
+
+
+				<form th:action="@{/login}" method="post"
+					class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+					<span class="login100-form-title"> Please Sign In </span>
+
+					<div class="wrap-input100 validate-input m-b-16"
+						data-validate="Please enter username">
+						<label for="inputEmail" class="sr-only">Email address</label> <input
+							class="input100" id="username" type="text" placeholder="Username"
+							required autofocus name="username"> <span
+							class="focus-input100"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Please enter password">
-						<label for="inputPassword" class="sr-only">Password</label>
-						<input class="input100" id="password" type="password" placeholder="Password" required name="password">
-						<span class="focus-input100"></span>
+					<div class="wrap-input100 validate-input"
+						data-validate="Please enter password">
+						<label for="inputPassword" class="sr-only">Password</label> <input
+							class="input100" id="password" type="password"
+							placeholder="Password" required name="password"> <span
+							class="focus-input100"></span>
 					</div>
 
 					<div class="text-right p-t-13 p-b-23">
-						<span class="txt1">
-							Forgot
-						</span>
+						<span class="txt1"> Forgot </span> <a href="#" id="myBtn"
+							class="txt2"> Username / Password? </a>
 
-						<a href="#" id="myBtn"class="txt2">
-							Username / Password?
-						</a>
-						
 						<div id="myModal" class="modal">
 
-					  <!-- Modal content -->
-					  <div class="modal-content">
-						<span class="close">&times;</span>
-						<p>DONT FORGET YOUR PASSWORD!</p>
-						<p>Let that be a lesson to you.</p>
-					  </div>
+							<!-- Modal content -->
+							<div class="modal-content">
+								<span class="close">&times;</span>
+								<p>DONT FORGET YOUR PASSWORD!</p>
+								<p>Let that be a lesson to you.</p>
+							</div>
 
 						</div>
-						
-						
-						
+
+
+
 					</div>
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Sign in
-						</button>
+						<button class="login100-form-btn">Sign in</button>
 					</div>
-					
-					<div class="text-right p-t-13 p-b-23">	
-					</div>
-					
-					<div th:if="${param.error}" class="alert alert-danger">Invalid username or password.</div>
-					
-					<div th:if="${param.logout}" class="alert alert-success">You have been logged out.</div>
+
+					<div class="text-right p-t-13 p-b-23"></div>
+
+					<div th:if="${param.error}" class="alert alert-danger">Invalid
+						username or password.</div>
+
+					<div th:if="${param.logout}" class="alert alert-success">You
+						have been logged out.</div>
 
 					<div class="flex-col-c p-t-170 p-b-40">
-						<span class="txt1 p-b-9">
-							Don&apos;t have an account?
-						</span>
-
-						<a href="register.html" class="txt3">
-							Sign up now
-						</a>
+						<span class="txt1 p-b-9"> Don&apos;t have an account? </span> <a
+							href="register.html" class="txt3"> Sign up now </a>
 					</div>
 				</form>
 			</div>
-			
-			
+
+
 		</div>
-		
-	<!-- include the footer Login Page fragment-->
-	<div th:replace="~{includes/footer :: footerLoginPage}"></div>
-	
-		
-		
-	</div>	
-<!--  End of container -->
-	
-<!--===============================================================================================-->
+
+		<!-- include the footer Login Page fragment-->
+		<div th:replace="~{includes/footer :: footerLoginPage}"></div>
+
+
+
+	</div>
+	<!--  End of container -->
+
+	<!--===============================================================================================-->
 	<script src="resource/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="resource/vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="resource/vendor/bootstrap/js/popper.js"></script>
 	<script src="resource/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="resource/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="resource/vendor/daterangepicker/moment.min.js"></script>
 	<script src="resource/vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="resource/vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="resource/js/main.js"></script>
 
 </body>

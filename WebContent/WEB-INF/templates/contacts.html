@@ -1,210 +1,210 @@
 <!DOCTYPE html>
-<html lang="en"
-xmlns="http://www.w3.org/1999/xhtml"
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Paper Dragon </title>
+<title>Paper Dragon</title>
 
-    <!-- Core CSS - Include with every page -->
-    <link href="resource/css/bootstrap.min.css" rel="stylesheet">
-    <link href="resource/font-awesome/css/font-awesome.css" rel="stylesheet">
+<!-- Core CSS - Include with every page -->
+<link href="resource/css/bootstrap.min.css" rel="stylesheet">
+<link href="resource/font-awesome/css/font-awesome.css" rel="stylesheet">
 
-    <!-- Page-Level Plugin CSS - Dashboard -->
-    <link href="resource/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
-    <link href="resource/css/plugins/timeline/timeline.css" rel="stylesheet">
+<!-- Page-Level Plugin CSS - Dashboard -->
+<link href="resource/css/plugins/morris/morris-0.4.3.min.css"
+	rel="stylesheet">
+<link href="resource/css/plugins/timeline/timeline.css" rel="stylesheet">
 
-    <!-- SB Admin CSS - Include with every page -->
-    <link href="resource/css/sb-admin.css" rel="stylesheet">
+<!-- SB Admin CSS - Include with every page -->
+<link href="resource/css/sb-admin.css" rel="stylesheet">
 
 </head>
 
 <body style="">
 
-    <div id="wrapper">
+	<div id="wrapper">
 
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0; height: 10px">
-        
-        
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation"
+			style="margin-bottom: 0; height: 10px">
 
 
-		 <!-- include the topBar Page fragment-->
+
+
+			<!-- include the topBar Page fragment-->
 			<div th:replace="~{includes/topBar :: topBarPage}"></div>
 
 
-	<!-- include the footer Sidebar Page fragment-->
-		<div th:replace="~{includes/sideBar :: sideBarPage}"></div>
-	
-           
-        </nav>
-	<!-- include the footer Sidebar Page fragment-->
-
-        <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <br>
-                    <h1 class="page-header">Contacts</h1>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            <div class="row">
-			
-                <div class="col-lg-8" style = width:50%>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Friendlist
-                            <div class="pull-right">
-                                
-                            </div>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="bg-success panel-body">
-                            						
-												
-                        
-                                  <table data-toggle="table" class="table">
-									<thead>
-										<tr>
-											<th data-sortable="true">User Name</th>
-										</tr>
-										
-									</thead>
-									
-									<tbody>
-                            			<tr th:each="friend : ${friends}">
-  											<td th:text="${friend.friend2.userName}">User Name</td>
-											<td> <a class="btn btn-danger" th:href="@{/removeFriend(name=${friend.friend2.userName})}"style = float:right>Delete</a> </td>
-											
-										</tr>
-									</tbody>
-								</table>
-                        </div>
+			<!-- include the footer Sidebar Page fragment-->
+			<div th:replace="~{includes/sideBar :: sideBarPage}"></div>
 
 
-                    </div>
-                    <!-- /.panel -->
+		</nav>
+		<!-- include the footer Sidebar Page fragment-->
 
-                    <!-- /.panel -->
-                  
-                    <!-- /.panel -->
-                </div>
-				
-				  <div class="col-lg-8" style = width:50%>
-                    <div class="panel panel-default ">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Block List
-                            <div class="pull-l">
-                              
-                            </div>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="bg-danger panel-body">
-						
-												
-                        
-                                   <table data-toggle="table" class="table">
-									<thead>
-										<tr>
-											<th data-sortable="true">User Name</th>
-										</tr>
-										
-									</thead>
-									
-									<tbody>
-                            			<tr th:each="block : ${blocks}">
-  											<td th:text="${block.blockedUser.userName}">User Name</td>
-											<td> <a  class="btn btn-danger" th:href="@{/removeBlock(name=${block.blockedUser.userName})}"style = float:right>Delete</a> </td>
-											
-										</tr>
-									</tbody>
-								</table>
+		<div id="page-wrapper">
+			<div class="row">
+				<div class="col-lg-12">
+					<br>
+					<h1 class="page-header">Contacts</h1>
+				</div>
+				<!-- /.col-lg-12 -->
+			</div>
+			<!-- /.row -->
+			<div class="row">
+
+				<div class="col-lg-8" style="width: 50%">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<i class="fa fa-bar-chart-o fa-fw"></i> Friendlist
+							<div class="pull-right"></div>
+						</div>
+						<!-- /.panel-heading -->
+						<div class="bg-success panel-body">
+
+
+
+							<table data-toggle="table" class="table">
+								<thead>
+									<tr>
+										<th data-sortable="true">User Name</th>
+									</tr>
+
+								</thead>
+
+								<tbody>
+									<tr th:each="friend : ${friends}">
+										<td th:text="${friend.friend2.userName}">User Name</td>
+										<td><a class="btn btn-danger"
+											th:href="@{/removeFriend(name=${friend.friend2.userName})}"
+											style="float: right">Delete</a></td>
+
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+
+					</div>
+					<!-- /.panel -->
+
+					<!-- /.panel -->
+
+					<!-- /.panel -->
+				</div>
+
+				<div class="col-lg-8" style="width: 50%">
+					<div class="panel panel-default ">
+						<div class="panel-heading">
+							<i class="fa fa-bar-chart-o fa-fw"></i> Block List
+							<div class="pull-l"></div>
+						</div>
+						<!-- /.panel-heading -->
+						<div class="bg-danger panel-body">
+
+
+
+							<table data-toggle="table" class="table">
+								<thead>
+									<tr>
+										<th data-sortable="true">User Name</th>
+									</tr>
+
+								</thead>
+
+								<tbody>
+									<tr th:each="block : ${blocks}">
+										<td th:text="${block.blockedUser.userName}">User Name</td>
+										<td><a class="btn btn-danger"
+											th:href="@{/removeBlock(name=${block.blockedUser.userName})}"
+											style="float: right">Delete</a></td>
+
+									</tr>
+								</tbody>
+							</table>
 
 						</div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
+						<!-- /.panel-body -->
+					</div>
+					<!-- /.panel -->
 
-                    <!-- /.panel -->
-            
-                    <!-- /.panel -->
-                </div>
-				
-				
-				
-								  <div class="col-lg-8" style = width:50%>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> User List
-                            <div class="pull-l">
-                              
-                            </div>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="bg-info panel-body">
-						
-                        
-                                   <table data-toggle="table" class="table">
-									<thead>
-										<tr>
-											<th data-sortable="true">User Name</th>
-										</tr>
-										
-									</thead>
-									
-									<tbody>
-                            			<tr th:each="user : ${userList}">
-  											<td th:text="${user.userName}">User Name</td>
-											<td> <a class="btn btn-danger" th:href="@{/addBlock(name=${user.userName})}" style = float:right>Block</a> 
-											<a class="btn btn-success" th:href="@{/addFriend(name=${user.userName})}"style = float:right>Friend</a> </td>
-											
-										</tr>
-									</tbody>
-								</table>
+					<!-- /.panel -->
 
-                        </div>
-                    <!-- /.panel -->
+					<!-- /.panel -->
+				</div>
 
-                    <!-- /.panel -->
-                  
-                        <!-- /.panel-heading -->
-                        
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-8 -->
-                <!-- /.col-lg-4 -->
-            </div>
-			
-			<div>
-                        		
+
+
+				<div class="col-lg-8" style="width: 50%">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<i class="fa fa-bar-chart-o fa-fw"></i> User List
+							<div class="pull-l"></div>
+						</div>
+						<!-- /.panel-heading -->
+						<div class="bg-info panel-body">
+
+
+							<table data-toggle="table" class="table">
+								<thead>
+									<tr>
+										<th data-sortable="true">User Name</th>
+									</tr>
+
+								</thead>
+
+								<tbody>
+									<tr th:each="user : ${userList}">
+										<td th:text="${user.userName}">User Name</td>
+										<td><a class="btn btn-danger"
+											th:href="@{/addBlock(name=${user.userName})}"
+											style="float: right">Block</a> <a class="btn btn-success"
+											th:href="@{/addFriend(name=${user.userName})}"
+											style="float: right">Friend</a></td>
+
+									</tr>
+								</tbody>
+							</table>
+
+						</div>
+						<!-- /.panel -->
+
+						<!-- /.panel -->
+
+						<!-- /.panel-heading -->
+
+						<!-- /.panel-body -->
+					</div>
+					<!-- /.panel -->
+				</div>
+				<!-- /.col-lg-8 -->
+				<!-- /.col-lg-4 -->
 			</div>
-            <!-- /.row -->
-        </div>
-        <!-- /#page-wrapper -->
 
-    </div>
-    <!-- /#wrapper -->
+			<div></div>
+			<!-- /.row -->
+		</div>
+		<!-- /#page-wrapper -->
 
-    <!-- Core Scripts - Include with every page -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	</div>
+	<!-- /#wrapper -->
 
-    <!-- Page-Level Plugin Scripts - Dashboard -->
-    <script src="js/plugins/morris/raphael-2.1.0.min.js"></script>
-    <script src="js/plugins/morris/morris.js"></script>
+	<!-- Core Scripts - Include with every page -->
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
 
-    <!-- SB Admin Scripts - Include with every page -->
-    <script src="js/sb-admin.js"></script>
+	<!-- Page-Level Plugin Scripts - Dashboard -->
+	<script src="js/plugins/morris/raphael-2.1.0.min.js"></script>
+	<script src="js/plugins/morris/morris.js"></script>
 
-    <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
-    <!--<script src="js/demo/dashboard-demo.js"></script>-->
+	<!-- SB Admin Scripts - Include with every page -->
+	<script src="js/sb-admin.js"></script>
+
+	<!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
+	<!--<script src="js/demo/dashboard-demo.js"></script>-->
 
 
 

@@ -1,124 +1,144 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body style="">
 
-	<div th:replace="~{includes/bootstrap :: bootstrapMeta}"/>
-    <title>Paper Dragon Character</title>
-	<div th:replace="~{includes/bootstrap :: bootstrapCSS}"/>
+	<div th:replace="~{includes/bootstrap :: bootstrapMeta}" />
+	<title>Paper Dragon Character</title>
+	<div th:replace="~{includes/bootstrap :: bootstrapCSS}" />
 
-    <!-- Core CSS - Include with every page -->
-    <link href="resource/css/bootstrap.min.css" rel="stylesheet">
-    <link href="resource/font-awesome/css/font-awesome.css" rel="stylesheet">
+	<!-- Core CSS - Include with every page -->
+	<link href="resource/css/bootstrap.min.css" rel="stylesheet">
+	<link href="resource/font-awesome/css/font-awesome.css"
+		rel="stylesheet">
 
-    <!-- Page-Level Plugin CSS - Dashboard -->
-    <link href="resource/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
-    <link href="resource/css/plugins/timeline/timeline.css" rel="stylesheet">
+	<!-- Page-Level Plugin CSS - Dashboard -->
+	<link href="resource/css/plugins/morris/morris-0.4.3.min.css"
+		rel="stylesheet">
+	<link href="resource/css/plugins/timeline/timeline.css"
+		rel="stylesheet">
 
-    <!-- SB Admin CSS - Include with every page -->
-    <link href="resource/css/sb-admin.css" rel="stylesheet">
-    
-    <link rel="stylesheet" type="text/css" href="resource/css/style.css">
+	<!-- SB Admin CSS - Include with every page -->
+	<link href="resource/css/sb-admin.css" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="resource/css/style.css">
 
 
 
-            <div class="row">
-            
-            
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                         
-                           <h2 class="txt2">Impressum</h2>
+	<div class="row">
 
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                        
-                       <!-- --------------------------------------------------------------------------->
-                        
-                        
-						 <section class="content">
-							    
-							        <p>&nbsp;</p>
-							        							
-							      <center><font size="5">This website is a project for the subject Softwareengineering Advanced in the major Informationmanagment.</font></center>
-							      
-							       <p>&nbsp;</p>
-							        
-							        
-							      <div class="mittig_text">
-							               <a href="http://fh-joanneum.at/informationsmanagement/bachelor/" target="_blank">
-							                 <img class="logoFH" src="resource/images/FHJoanneum.jpg" alt="FH Joanneum Informationsmanagement">
-							               </a><br>
-							        </div>
-							         
-							
-							    
-							    <section class="Autor">
-							        <h1><u>Supervisor:</u></h1>
-							           <br><font size="4">Dipl.-Ing.(FH) Johann Blauensteiner</font>
-							           </section>
-							    
-							   <p>&nbsp;</p>
-							               <h1><u>Autors:</u></h1>
-							               <font size="4">Andreas Staudacher</font><br>
-							               <font size="4">Florian Gartner</font><br>
-							               <font size="4">Georg Schmitzer</font><br>
-							               							    
 
-							        <p>&nbsp;</p>
-							    
-							    <h1><u>FH-Copyright:</u></h1>
-							    
-							    <font size="4">Copyright &copy; by FH <br>
-							    No copyright or trademark infringement is intended in using FH content on this site.</font> <br>
-							    
+		<div class="col-lg-12">
+			<div class="panel panel-default">
 
-							        <p>&nbsp;</p>
-							        
-							         <a type="button" class="btn btn-primary btn-lg" href="index.html"> BACK</a>
-							         
-							          <p>&nbsp;</p>
-							        <p>&nbsp;</p>
-							      
-							 </section> 
-							                        
-                        
-                        
-                        
-                        <!-- --------------------------------------------------------------------------->
-                        
-                        
-       </div>
-                              
-        </div>
-        <!-- /#page-wrapper -->
+				<h2 class="txt2">Impressum</h2>
 
-    </div>
-      </div>
-    <!-- /#wrapper -->
+				<!-- /.panel-heading -->
+				<div class="panel-body">
 
-    <!-- Core Scripts - Include with every page -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+					<!-- --------------------------------------------------------------------------->
 
-    <!-- Page-Level Plugin Scripts - Flot -->
-    <!--[if lte IE 8]><script src="js/excanvas.min.js"></script><![endif]-->
-    <script src="js/plugins/flot/jquery.flot.js"></script>
-    <script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-    <script src="js/plugins/flot/jquery.flot.resize.js"></script>
-    <script src="js/plugins/flot/jquery.flot.pie.js"></script>
 
-    <!-- SB Admin Scripts - Include with every page -->
-    <script src="js/sb-admin.js"></script>
+					<section class="content">
 
-    <!-- Page-Level Demo Scripts - Flot - Use for reference -->
-    <script src="js/demo/flot-demo.js"></script>
+						<p>&nbsp;</p>
+
+						<center>
+							<font size="5">This website is a project for the subject
+								Softwareengineering Advanced in the major Informationmanagment.</font>
+						</center>
+
+						<p>&nbsp;</p>
+
+
+						<div class="mittig_text">
+							<a href="http://fh-joanneum.at/informationsmanagement/bachelor/"
+								target="_blank"> <img class="logoFH"
+								src="resource/images/FHJoanneum.jpg"
+								alt="FH Joanneum Informationsmanagement">
+							</a><br>
+						</div>
+
+
+
+						<section class="Autor">
+							<h1>
+								<u>Supervisor:</u>
+							</h1>
+							<br>
+							<font size="4">Dipl.-Ing.(FH) Johann Blauensteiner</font>
+						</section>
+
+						<p>&nbsp;</p>
+						<h1>
+							<u>Autors:</u>
+						</h1>
+						<font size="4">Andreas Staudacher</font><br> <font size="4">Florian
+							Gartner</font><br> <font size="4">Georg Schmitzer</font><br>
+
+
+						<p>&nbsp;</p>
+
+						<h1>
+							<u>FH-Copyright:</u>
+						</h1>
+
+						<font size="4">Copyright &copy; by FH <br> No
+							copyright or trademark infringement is intended in using FH
+							content on this site.
+						</font> <br>
+
+
+						<p>&nbsp;</p>
+
+						<a type="button" class="btn btn-primary btn-lg" href="index.html">
+							BACK</a>
+
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+
+					</section>
 
 
 
 
-</body></html>
+					<!-- --------------------------------------------------------------------------->
+
+
+				</div>
+
+			</div>
+			<!-- /#page-wrapper -->
+
+		</div>
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- Core Scripts - Include with every page -->
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+
+	<!-- Page-Level Plugin Scripts - Flot -->
+	<!--[if lte IE 8]><script src="js/excanvas.min.js"></script><![endif]-->
+	<script src="js/plugins/flot/jquery.flot.js"></script>
+	<script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+	<script src="js/plugins/flot/jquery.flot.resize.js"></script>
+	<script src="js/plugins/flot/jquery.flot.pie.js"></script>
+
+	<!-- SB Admin Scripts - Include with every page -->
+	<script src="js/sb-admin.js"></script>
+
+	<!-- Page-Level Demo Scripts - Flot - Use for reference -->
+	<script src="js/demo/flot-demo.js"></script>
+
+
+
+
+</body>
+</html>

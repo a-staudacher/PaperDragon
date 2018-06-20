@@ -1,134 +1,140 @@
 <!DOCTYPE html>
-<html lang="en"
-xmlns="http://www.w3.org/1999/xhtml"
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">>
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+>
 <head>
 <div th:replace="~{includes/bootstrap :: bootstrapMeta}" />
-	<title>PaperDragon</title>
+<title>PaperDragon</title>
 <div th:replace="~{includes/bootstrap :: bootstrapCSS}" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="resource/image/png" href="resource/images/icons/favicon.ico"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="resource/vendor/bootstrap/css/bootstrap.min.css">
+<link rel="icon" type="resource/image/png"
+	href="resource/images/icons/favicon.ico" />
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="resource/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css"
+	href="resource/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="resource/vendor/animate/animate.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="resource/vendor/css-hamburgers/hamburgers.min.css">
+<link rel="stylesheet" type="text/css"
+	href="resource/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="resource/vendor/animsition/css/animsition.min.css">
+<link rel="stylesheet" type="text/css"
+	href="resource/vendor/animate/animate.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="resource/vendor/select2/select2.min.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="resource/vendor/daterangepicker/daterangepicker.css">
+<link rel="stylesheet" type="text/css"
+	href="resource/vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="resource/css/util.css">
-	<link rel="stylesheet" type="text/css" href="resource/css/main.css">
+<link rel="stylesheet" type="text/css"
+	href="resource/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="resource/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="resource/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="resource/css/util.css">
+<link rel="stylesheet" type="text/css" href="resource/css/main.css">
 <!--===============================================================================================-->
 </head>
 <body>
-	
+
 	<div class="limiter">
 		<div class="container-login100">
-		
+
 			<div class="login100-pic js-tilt" data-tilt>
-					<img src="resource/images/img-01.png" alt="IMG">
-				</div>
-				
-				<div class="wrap-login100">
-				
-			
-			
-				<form action="register" method="post" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
-					<span class="login100-form-title">
-						New Account
-					</span>
+				<img src="resource/images/img-01.png" alt="IMG">
+			</div>
 
-					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
-						<label for="inputEmail" class="sr-only">Email address</label>
-						<input class="input100" id="username" type="text" placeholder="Username" required autofocus name="userName">
-						<span class="focus-input100"></span>
-					</div>
-					
-					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter charactername">
-						<input class="input100" id="charactername" type="text" placeholder="Charactername" required autofocus name="charactername">
-						<span class="focus-input100"></span>
-					</div>
-					
-					<div class="text-center validate-input p-t-13 p-b-23" data-validate="Please choose a Gender">
-						<label class="txt1" style="margin-right:2em">Character Gender:</label>
-						
-						<span style="font-size: 20pt"><i class="fa fa-venus fa-lg" aria-hidden="true"></i></span>
-						<input type="radio" name="female" id="female" style="margin-right:2em">
-						
-						<span style="font-size: 20pt"><i class="fa fa-mars fa-lg" aria-hidden="true"></i></span>
-						<input type="radio" name="male" id="male">
-						
+			<div class="wrap-login100">
+
+
+
+				<form action="register" method="post"
+					class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+					<span class="login100-form-title"> New Account </span>
+
+					<div class="wrap-input100 validate-input m-b-16"
+						data-validate="Please enter username">
+						<label for="inputEmail" class="sr-only">Email address</label> <input
+							class="input100" id="username" type="text" placeholder="Username"
+							required autofocus name="userName"> <span
+							class="focus-input100"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Please enter password">
-						<label for="inputPassword" class="sr-only">Password</label>
-						<input class="input100" id="password" type="password" placeholder="Password" required name="password">
-						<span class="focus-input100"></span>
+					<div class="wrap-input100 validate-input m-b-16"
+						data-validate="Please enter charactername">
+						<input class="input100" id="charactername" type="text"
+							placeholder="Charactername" required autofocus
+							name="charactername"> <span class="focus-input100"></span>
+					</div>
+
+					<div class="text-center validate-input p-t-13 p-b-23"
+						data-validate="Please choose a Gender">
+						<label class="txt1" style="margin-right: 2em">Character
+							Gender:</label> <span style="font-size: 20pt"><i
+							class="fa fa-venus fa-lg" aria-hidden="true"></i></span> <input
+							type="radio" name="female" id="female" style="margin-right: 2em">
+
+						<span style="font-size: 20pt"><i class="fa fa-mars fa-lg"
+							aria-hidden="true"></i></span> <input type="radio" name="male" id="male">
+
+					</div>
+
+					<div class="wrap-input100 validate-input"
+						data-validate="Please enter password">
+						<label for="inputPassword" class="sr-only">Password</label> <input
+							class="input100" id="password" type="password"
+							placeholder="Password" required name="password"> <span
+							class="focus-input100"></span>
 					</div>
 
 					<div class="text-right p-t-13 p-b-23">
-						<span class="txt1">
-							Choose password
-						</span>
-
-						<a class="txt2">
-							wisely!
-						</a>
+						<span class="txt1"> Choose password </span> <a class="txt2">
+							wisely! </a>
 					</div>
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Create Account
-						</button>
+						<button class="login100-form-btn">Create Account</button>
 					</div>
-					
+
 					<div class="flex-col-c p-t-170 p-b-40">
-					
-					<a th:href="@{/login}" class="txt2">
-							Go Back
-						</a>
+
+						<a th:href="@{/login}" class="txt2"> Go Back </a>
 					</div>
-					
-				<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
+					<input type="hidden" th:name="${_csrf.parameterName}"
+						th:value="${_csrf.token}" />
 				</form>
 			</div>
-			
-			
+
+
 		</div>
-		
-	<!-- include the footer Login Page fragment-->
-	<div th:replace="~{includes/footer :: footerLoginPage}"></div>
-		
-		
-		
-	</div>	
-<!--  End of container -->
-	
-<!--===============================================================================================-->
+
+		<!-- include the footer Login Page fragment-->
+		<div th:replace="~{includes/footer :: footerLoginPage}"></div>
+
+
+
+	</div>
+	<!--  End of container -->
+
+	<!--===============================================================================================-->
 	<script src="resource/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="resource/vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="resource/vendor/bootstrap/js/popper.js"></script>
 	<script src="resource/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="resource/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="resource/vendor/daterangepicker/moment.min.js"></script>
 	<script src="resource/vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="resource/vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="resource/js/main.js"></script>
 
 </body>
