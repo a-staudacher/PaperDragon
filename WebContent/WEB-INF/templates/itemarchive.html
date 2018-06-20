@@ -82,6 +82,7 @@ xmlns="http://www.w3.org/1999/xhtml"
 						<tr>
 							<th data-sortable="true">Icon</th>
 							<th data-sortable="true">Name</th>
+							<th data-sortable="true">Description</th>
 							<th data-sortable="true">STR</th>
 							<th data-sortable="true">DEX</th>
 							<th data-sortable="true">INT</th>
@@ -93,18 +94,20 @@ xmlns="http://www.w3.org/1999/xhtml"
 							<th>Actions</th>
 						</tr>
 					</thead>
-					<tbody th:if="${false}">
+					<tbody>
 						<!--  list all items ----------------------------------------------------------- -->
-						<tr th:each="item : ${character.items}">
-							<td th:text="${item.itemBase.picture} + '.png'"></td>
-							<td th:text="${item.itemBase.name} + '.png'"></td>
-							<td th:text="${{item.itemBase.strength} + '.png'"></td>
-							<td th:text="${{item.itemBase.dexterity} + '.png'"></td>
-							<td th:text="${{item.itemBase.inteligenz} + '.png'"></td>
-							<td th:text="${{item.itemBase.constitution} + '.png'"></td>
-							<td th:text="${{item.itemBase.vitality} + '.png'"></td>
-							<td th:text="${{item.itemBase.wisdom} + '.png'"></td>
-							<td th:text="${{item.itemBase.charisma} + '.png'"></td>
+						<tr th:each="item : ${items}">
+							<td th:text="${item.itemType.type} + '.png'"></td>
+							<td th:text="${item.name}"></td>
+							<td th:text="${item.text}"></td>
+							<td th:text="${item.strength}"></td>
+							<td th:text="${item.dexterity}"></td>
+							<td th:text="${item.inteligenz}"></td>
+							<td th:text="${item.constitution}"></td>
+							<td th:text="${item.vitality}"></td>
+							<td th:text="${item.wisdom}"></td>
+							<td th:text="${item.charisma}"></td>
+							<td th:text="${item.price}"></td>
 
 							<td>
 								<a th:href="@{/addItem(id=${item.id})}" class="btn btn-xs btn-warning">
