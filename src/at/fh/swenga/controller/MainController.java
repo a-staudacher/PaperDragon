@@ -158,6 +158,16 @@ public class MainController {
 
 		return index(model,authentication);
 	}
+	
+	
+	
+
+	@RequestMapping(value="/impressum",method = RequestMethod.GET )
+	public String getImpressum(Model model) {
+		return "impressum";
+	}
+	
+	
 	/*
 	 * @ExceptionHandler()
 	 * 
