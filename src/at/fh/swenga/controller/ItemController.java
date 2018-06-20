@@ -240,6 +240,72 @@ public class ItemController {
 		
 		return "characterpage";
 	}
+	
+	@RequestMapping(value = "/equipItem")
+	public String equipItem(Model model, Authentication authentication, @RequestParam int id) {
+		
+		String userName = authentication.getName();
+		Character character = characterRepository.findByUserUserName(userName);
+		
+		if(itemModelRepository.findById(id).isPresent())
+		{
+			ItemModel itemModel = itemModelRepository.findById(id).get();
+			String itemType = itemModel.getItemBase().getItemType().getType();
+			
+			for(ItemModel item: itemModelRepository.findByItemBaseItemTypeType(itemType))
+			{
+				if(item.isEquipped()) {
+					item.setEquipped(false);
+					itemModelRepository.save(item);
+				}
+			}
+			
+			
+			
+			
+			itemModel.setEquipped(!itemModel.isEquipped());
+			itemModelRepository.save(itemModel);			
+		}
+		
+		character = characterRepository.findByUserUserName(userName);
+		
+		model.addAttribute("user",userRepository.findUser(userName));
+		model.addAttribute("character",character);
+		
+		
+		return "characterpage";
+	}
+	
+	@RequestMapping(value = "/dropItem")
+	public String dropItem(Model model, Authentication authentication, @RequestParam int id) {
+		
+		String userName = authentication.getName();
+		Character character = characterRepository.findByUserUserName(userName);
+		
+		if(itemModelRepository.findById(id).isPresent())
+		{
+			itemModelRepository.delete(itemModelRepository.findById(id).get());
+		}
+		
+		character = characterRepository.findByUserUserName(userName);
+		
+		model.addAttribute("user",userRepository.findUser(userName));
+		model.addAttribute("character",character);
+		
+		
+		return "characterpage";
+	}
+	
+	@RequestMapping(value = "/searchitem")
+	public String searchItem(Model model, Authentication authentication, @RequestParam String text) {
+		
+		
+		model.addAttribute("items",itemBaseModelRepository.findByNameContainingAllIgnoreCase(text));
+		
+		
+		return "itemarchive";
+	}
+	
  
 	@ExceptionHandler(Exception.class)
 	public String handleAllException(Exception ex) {
