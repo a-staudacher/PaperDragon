@@ -99,7 +99,7 @@
 						<tbody>
 							<!--  list all items ----------------------------------------------------------- -->
 							<tr th:each="item : ${items}">
-								<td th:text="${item.itemType.type} + '.png'"></td>
+								<td><img alt="" style="width:50px" th:src="'resource/images/icons/' + ${item.itemType.type} + '.png'"></td>
 								<td th:text="${item.name}"></td>
 								<td th:text="${item.text}"></td>
 								<td th:text="${item.strength}"></td>
@@ -133,26 +133,24 @@
 
 	<!-- /#wrapper -->
 
-	<!-- Core Scripts - Include with every page -->
-	<script src="js/jquery-1.10.2.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+			<!-- Core Scripts - Include with every page -->
+			<script src="resource/js/jquery-1.10.2.js"></script>
+			<script src="resource/js/bootstrap.min.js"></script>
+			<script src="resource/js/plugins/metisMenu/jquery.metisMenu.js"></script>
 
-	<!-- Page-Level Plugin Scripts - Dashboard -->
-	<script src="js/plugins/morris/raphael-2.1.0.min.js"></script>
-	<script src="js/plugins/morris/morris.js"></script>
+			<!-- Page-Level Plugin Scripts - Flot -->
+			<!--[if lte IE 8]><script src="js/excanvas.min.js"></script><![endif]-->
+			<script src="resource/js/plugins/flot/jquery.flot.js"></script>
+			<script src="resource/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+			<script src="resource/js/plugins/flot/jquery.flot.resize.js"></script>
+			<script src="resource/js/plugins/flot/jquery.flot.pie.js"></script>
 
-	<!-- SB Admin Scripts - Include with every page -->
-	<script src="js/sb-admin.js"></script>
-
-	<!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
-	<!--<script src="js/demo/dashboard-demo.js"></script>-->
-
-
+			<!-- SB Admin Scripts - Include with every page -->
+			<script src="resource/js/sb-admin.js"></script>
 
 
 
-
+	<div th:replace="~{includes/bootstrap :: bootstrapJS}" />
 
 </body>
 

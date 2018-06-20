@@ -4,13 +4,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
 
-<body style="">
-
-	<div th:replace="~{includes/bootstrap :: bootstrapMeta}" />
+	<div th:replace="~{includes/bootstrap :: bootstrapMeta}" th:remove="tag" />
 	<title>Paper Dragon Character</title>
-	<div th:replace="~{includes/bootstrap :: bootstrapCSS}" />
+	<div th:replace="~{includes/bootstrap :: bootstrapCSS}"th:remove="tag"  />
 
 	<!-- Core CSS - Include with every page -->
 	<link href="resource/css/bootstrap.min.css" rel="stylesheet">
@@ -25,6 +22,12 @@
 
 	<!-- SB Admin CSS - Include with every page -->
 	<link href="resource/css/sb-admin.css" rel="stylesheet">
+
+
+</head>
+
+<body style="">
+
 
 
 
@@ -171,7 +174,7 @@
 
 
 
-								<div class="container" role="main">
+								<div role="main">
 
 
 									<!-- include the Nav bar fragment-->
@@ -179,7 +182,7 @@
 
 
 									<div class="row">
-										<div class="col-md-10 col-md-offset-1">
+										<div>
 
 											<table data-toggle="table" class="table table-striped">
 												<thead>
@@ -201,17 +204,18 @@
 												<tbody th:if="${character.items}">
 													<!--  list all items ----------------------------------------------------------- -->
 													<tr th:each="item : ${character.items}">
-														<td th:text="${item.itemBase.itemType.type} + '.png'"></td>
-														<td th:text="${item.itemBase.name}"></td>
-														<td th:text="${item.itemBase.text}"></td>
-														<td th:text="${item.itemBase.strength}"></td>
-														<td th:text="${item.itemBase.dexterity}"></td>
-														<td th:text="${item.itemBase.inteligenz}"></td>
-														<td th:text="${item.itemBase.constitution}"></td>
-														<td th:text="${item.itemBase.vitality}"></td>
-														<td th:text="${item.itemBase.wisdom}"></td>
-														<td th:text="${item.itemBase.charisma}"></td>
-														<td th:text="${item.itemBase.price}"></td>
+													
+														<td th:style="${item.equipped} ? 'background-color:#1ED760'"><img alt="" style="width:50px" th:src="'resource/images/icons/' + ${item.itemBase.itemType.type} + '.png'"></td>
+														<td th:style="${item.equipped} ? 'background-color:#1ED760'" th:text="${item.itemBase.name}"></td>
+														<td th:style="${item.equipped} ? 'background-color:#1ED760'" th:text="${item.itemBase.text}"></td>
+														<td th:style="${item.equipped} ? 'background-color:#1ED760'" th:text="${item.itemBase.strength}"></td>
+														<td th:style="${item.equipped} ? 'background-color:#1ED760'" th:text="${item.itemBase.dexterity}"></td>
+														<td th:style="${item.equipped} ? 'background-color:#1ED760'" th:text="${item.itemBase.inteligenz}"></td>
+														<td th:style="${item.equipped} ? 'background-color:#1ED760'" th:text="${item.itemBase.constitution}"></td>
+														<td th:style="${item.equipped} ? 'background-color:#1ED760'" th:text="${item.itemBase.vitality}"></td>
+														<td th:style="${item.equipped} ? 'background-color:#1ED760'" th:text="${item.itemBase.wisdom}"></td>
+														<td th:style="${item.equipped} ? 'background-color:#1ED760'" th:text="${item.itemBase.charisma}"></td>
+														<td th:style="${item.equipped} ? 'background-color:#1ED760'" th:text="${item.itemBase.price}"></td>
 
 														<td><a th:href="@{/equipItem(id=${item.id})}"
 															class="btn btn-xs btn-success"> <span
@@ -251,7 +255,7 @@
 								<div class="flot-chart">
 
 
-									<div style="boarder-sytle: solid; height: 300px; width: 50%">
+									<div th:if="${false}" style="boarder-sytle: solid; height: 300px; width: 50%">
 
 										<img
 											th:src="'resource/images/items/' + ${helmet.itemBase.name}"
@@ -313,21 +317,20 @@
 			<!-- /#wrapper -->
 
 			<!-- Core Scripts - Include with every page -->
-			<script src="js/jquery-1.10.2.js"></script>
-			<script src="js/bootstrap.min.js"></script>
-			<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+			<script src="resource/js/jquery-1.10.2.js"></script>
+			<script src="resource/js/bootstrap.min.js"></script>
+			<script src="resource/js/plugins/metisMenu/jquery.metisMenu.js"></script>
 
 			<!-- Page-Level Plugin Scripts - Flot -->
 			<!--[if lte IE 8]><script src="js/excanvas.min.js"></script><![endif]-->
-			<script src="js/plugins/flot/jquery.flot.js"></script>
-			<script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-			<script src="js/plugins/flot/jquery.flot.resize.js"></script>
-			<script src="js/plugins/flot/jquery.flot.pie.js"></script>
+			<script src="resource/js/plugins/flot/jquery.flot.js"></script>
+			<script src="resource/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+			<script src="resource/js/plugins/flot/jquery.flot.resize.js"></script>
+			<script src="resource/js/plugins/flot/jquery.flot.pie.js"></script>
 
 			<!-- SB Admin Scripts - Include with every page -->
-			<script src="js/sb-admin.js"></script>
+			<script src="resource/js/sb-admin.js"></script>
 
-			<!-- Page-Level Demo Scripts - Flot - Use for reference -->
-			<script src="js/demo/flot-demo.js"></script>
+
 </body>
 </html>
