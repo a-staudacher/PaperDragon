@@ -31,10 +31,10 @@ public class ItemModel implements java.io.Serializable {
 	@Column(nullable = false)
 	private boolean equipped;
 	
-	@ManyToOne (cascade = CascadeType.PERSIST)
+	@ManyToOne
 	private Character character;
 
-	@ManyToOne (cascade = CascadeType.PERSIST)
+	@ManyToOne
 	private ItemBaseModel itemBase;
 	
 	public ItemModel() {}
