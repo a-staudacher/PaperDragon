@@ -1,13 +1,13 @@
 # PaperDragon
 FH Joannum SWENGA Project
 
-##Teammembers:
+## Teammembers:
 -Andreas Staudacher
 -Florian Gartner
 -Georg Schmitzer
 
-##Work distribution:
-###Andreas Staudacher:
+## Work distribution:
+### Andreas Staudacher:
 Project Leader
 Projekt Setup (Create Dynamic Web Project, Configer XMLs, upload to GitHub)
 Head of Coding
@@ -20,7 +20,7 @@ Generall assisting and problem solving
 ER-Diagramm, UserRequirement-Specification
 README file
 
-###Florian Gartner:
+### Florian Gartner:
 Model Creation (Chat, GameSession, Post, Threat)
 Template Research
 HTML Design & Thymeleaf
@@ -34,7 +34,7 @@ assisting in security
 README file
 testing
 
-###Georg Schmitzer
+### Georg Schmitzer
 Head of Design
 Find/choose pictures
 HTML Design & Thymeleaf
@@ -47,7 +47,7 @@ PowerPoint
 README file
 testing
 
-##Setup instructions
+## Setup instructions
 1. Download From Master Branch the project
 2. Unzip and copy the project into your eclipse workspace
 3. In eclipe: File->Import->Existing Project into Workspace->Select root directory->Finish
