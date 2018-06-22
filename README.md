@@ -2,50 +2,50 @@
 FH Joannum SWENGA Project
 
 ## Teammembers:
--Andreas Staudacher
--Florian Gartner
--Georg Schmitzer
+* Andreas Staudacher
+* Florian Gartner
+* Georg Schmitzer
 
 ## Work distribution:
 ### Andreas Staudacher:
-Project Leader
-Projekt Setup (Create Dynamic Web Project, Configer XMLs, upload to GitHub)
-Head of Coding
-Major Model creation
-DAOs
-Controllers
-Picture Upload
-EXCEL export (Character stats)
-Generall assisting and problem solving
-ER-Diagramm, UserRequirement-Specification
-README file
+* Project Leader
+* Projekt Setup (Create Dynamic Web Project, Configer XMLs, upload to GitHub)
+* Head of Coding
+* Major Model creation
+* DAOs
+* Controllers
+* Picture Upload
+* EXCEL export (Character stats)
+* Generall assisting and problem solving
+* ER-Diagramm, UserRequirement-Specification
+* README file
 
 ### Florian Gartner:
-Model Creation (Chat, GameSession, Post, Threat)
-Template Research
-HTML Design & Thymeleaf
-Itemlist website,...
-ER-Diagramm, UserRequirement-Specification
-Chat design implementation
-ItemController
-PowerPoint
-assisting with Controllers
-assisting in security
-README file
-testing
+* Model Creation (Chat, GameSession, Post, Threat)
+* Template Research
+* HTML Design & Thymeleaf
+* Itemlist website,...
+* ER-Diagramm, UserRequirement-Specification
+* Chat design implementation
+* ItemController
+* PowerPoint
+* assisting with Controllers
+* assisting in security
+* README file
+* testing
 
 ### Georg Schmitzer
-Head of Design
-Find/choose pictures
-HTML Design & Thymeleaf
-Documentation (mockups)
-ER-Diagramm, UserRequirement-Specification
-Security of banning users
-assisting with Controllers
-Excel export (added items)
-PowerPoint
-README file
-testing
+* Head of Design
+* Find/choose pictures
+* HTML Design & Thymeleaf
+* Documentation (mockups)
+* ER-Diagramm, UserRequirement-Specification
+* Security of banning users
+* assisting with Controllers
+* Excel export (added items)
+* PowerPoint
+* README file
+* testing
 
 ## Setup instructions
 1. Download From Master Branch the project
@@ -65,10 +65,10 @@ testing
 13. Enjoy!
 
 Login Daten: 
-admin password
-user password
+* admin password
+* user password
 
 URLs to run:
-localhost:8080/PaperDragon/fillUsers
-localhost:8080/PaperDragon/fillItems (after Login)
+* localhost:8080/PaperDragon/fillUsers
+* localhost:8080/PaperDragon/fillItems (after Login)
 
