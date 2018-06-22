@@ -108,7 +108,7 @@ public class SecurityController {
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registerPost(@Valid User newUser, @RequestParam String charactername, @RequestParam(required=false) String male, BindingResult bindingResult,
+	public String registerPost(@Valid User newUser, @RequestParam String charactername, @RequestParam String gender, BindingResult bindingResult,
 			Model model) {
 		
 		
@@ -138,12 +138,16 @@ public class SecurityController {
 			model.addAttribute("Registrierung", "New user " + newUser.getUserName() + "  erfolgreich.");
 		}
 		DataFactory df = new DataFactory();
-		String gender = male != null ? "Male" : "Female";
-		Character character = new Character(charactername, "", df.getNumberUpTo(20), df.getNumberUpTo(20), df.getNumberUpTo(20), df.getNumberUpTo(20), df.getNumberUpTo(20), df.getNumberUpTo(20), df.getNumberUpTo(20), gender, null, newUser);
-		characterRepository.save(character);
-		
-		return handleLogin();
-		
+		if(gender.equals("Male") || gender.equals("Female"))
+		{
+			Character character = new Character(charactername, "", df.getNumberUpTo(20), df.getNumberUpTo(20), df.getNumberUpTo(20), df.getNumberUpTo(20), df.getNumberUpTo(20), df.getNumberUpTo(20), df.getNumberUpTo(20), gender, null, newUser);
+			characterRepository.save(character);			
+			return handleLogin();
+		}
+		else
+		{
+			return "register";
+		}
 
 	}
  
