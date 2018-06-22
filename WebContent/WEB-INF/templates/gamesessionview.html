@@ -62,7 +62,7 @@
 			</div>
 			<!-- /.row -->
 			<div class="row">
-
+						<!-- Friends in Game -->
 				<div class="col-lg-8" style="width: 50%">
 					<div class="panel panel-default">
 						<div class="panel-heading">
@@ -106,26 +106,39 @@
 					</form>
 
 
-
-				<div class="col-lg-8" style="width: 50%; float: right">
+							<!-- World Lore -->
+				<div  class="col-lg-8" style="width: 50%; float: right">
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<i class="fa fa-bar-chart-o fa-fw"></i> World Lore
 							<div class="pull-l"></div>
 						</div>
-						<!-- /.panel-heading -->
-						<div class="panel-body" style="width: 100%; height: 400px;"
-							th:text="${gameSession} ? ${gameSession.lore}"></div>
+						 <!-- /.panel-heading -->
+						 
+						 
+						 
+						<textarea name="newlore" form="editlore" th:if="${editMode}" class="panel-body" style="width: 100%; height: 400px;"
+							th:text="${gameSession} ? ${gameSession.lore}"></textarea>
+							
+						<textarea  disabled th:if="!${editMode}" class="panel-body" style="width: 100%; height: 400px;"
+							th:text="${gameSession} ? ${gameSession.lore}"></textarea>
+							
 						<!-- /.panel-body -->
 					</div>
 					<!-- /.panel -->
-
+					<form id="editlore" th:action="${editMode} ? @{/saveLore} : @{/editMode}">
+					
+					<input type="submit" class="btn btn-warning"  style="float: right" th:value="${editMode} ? 'Save Lore' : 'Edit Lore'">
+					
+					</form>
+					
+						
 					<!-- /.panel -->
 					<!-- /.panel -->
 				</div>
 
 
-
+<!-- User List -->
 				<div class="col-lg-8" style="width: 50%; float: left">
 					<div class="panel panel-default">
 						<div class="panel-heading">
@@ -163,6 +176,51 @@
 						<!-- /.panel-body -->
 					</div>
 					<!-- /.panel -->
+				</div>
+				
+				
+				<!-- Chat -->
+					<div class="chat-panel panel panel-default">
+					<!-- /.panel-heading -->
+					<div class="panel-body">
+						<div th:if="${gameSession}">
+							<table data-toggle="table" class="table table-hover">
+								<thead>
+									<tr>
+										<th>UserName</th>
+										<th>Nachricht</th>
+										<th>Zeit</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="line : ${gameSession.chatLines}">
+										<td><a th:text="${line.user.userName} +':'" th:href="'characterview.html?'+'name='+${line.user.userName}"></a></td>
+										<td th:text="${line.text}">Nachricht</td>
+										<td th:text="${line.date}">Zeit</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- /.panel-body -->
+					<div>
+						<div class="input-group">
+							<form method="post" th:action="@{/chatingame}">
+								<input id="btn-input" type="text" class="form-control input-sm"
+									name="text" placeholder="Type your message here..."
+									style="width: 93%">
+								 <span class="input-group-btn"
+									style="float: right">
+									<button class="btn btn-warning btn-sm" id="btn-chat">
+										Send</button>
+								</span>
+							</form>
+						</div>
+					</div>
+					
+					<div class="panel-footer" >
+					</div>
+					<!-- /.panel-footer -->
 				</div>
 				<!-- /.col-lg-8 -->
 				<!-- /.col-lg-4 -->

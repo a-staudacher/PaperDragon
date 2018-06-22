@@ -3,7 +3,6 @@ package at.fh.swenga.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -174,18 +173,45 @@ public class MainController {
 	}
 	
 	
-	
-	
-	
-	@RequestMapping(value="/chat",method = RequestMethod.POST )
-	public String postChat(@Valid @ModelAttribute Chat newChat, Model model, Authentication authentication) {
-		User user = userRepository.findUser(authentication.getName());
+	private void createChatLine(Chat newChat, String userName) 
+	{
+		User user = userRepository.findUser(userName);
+		if(user.getGameSession()!=null)
+		{
 		newChat.setUser(user);
 		newChat.setDate(new Date());
 		newChat.setGamesession(user.getGameSession());
 		chatRepository.save(newChat);
+		}
+	}
+	
+	
+	@RequestMapping(value="/chat",method = RequestMethod.POST )
+	public String postChat(@Valid @ModelAttribute Chat newChat, Model model, Authentication authentication) {
+		createChatLine(newChat, authentication.getName());
 
 		return index(model,authentication);
+	}
+	
+	@RequestMapping(value="/chatingame",method = RequestMethod.POST )
+	public String postChatInGame(@Valid @ModelAttribute Chat newChat, Model model, Authentication authentication) {
+		String userName = authentication.getName();
+		createChatLine(newChat, userName);
+
+		
+		User user = userRepository.findUser(userName);
+		GameSession gameSession = user.getGameSession();
+		
+		if(gameSession == null)
+			return "gamesessioncreate";
+		
+		List<User> userList = userRepository.findAll();
+		model.addAttribute("userList", userList);
+		
+		
+		model.addAttribute("user",user);
+		model.addAttribute("gameSession",gameSession);
+		return "gamesessionview";
 	}
 	
 	

@@ -103,8 +103,7 @@
 												th:action="@{'/uploadProfilePic' +'?' + ${_csrf.parameterName} + '=' + ${_csrf.token}}"
 												enctype="multipart/form-data" method="post">
 												<div align="center">
-													<input type="image"
-														th:src="${user.picture} ? @{'data:image/jpeg;base64,'+*{T(org.springframework.util.Base64Utils).encodeToString(user.picture.content)}} : 'https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg'"
+													<input type="image"	th:src="${user.picture} ? @{'data:image/jpeg;base64,'+*{T(org.springframework.util.Base64Utils).encodeToString(user.picture.content)}} : 'https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg'"
 														id="profile-image1" class="img-circle img-responsive"
 														style="width: 200px"> 
 														<p>&nbsp;</p>
@@ -360,7 +359,8 @@
 						</div>
 					</div>
 					<!-- /.panel-heading -->
-					<div class="panel-body">
+					<div class="panel-body" >
+						<span th:if="!${gameSession}"> To use the chat join a Game Session</span>
 						<div th:if="${gameSession}">
 							<table data-toggle="table" class="table table-hover">
 								<thead>

@@ -142,7 +142,31 @@ public class GameController {
 		gameSessionRepository.save(user.getGameSession());
 		return ViewGameSession(model,authentication);
 	}
+	
+	@RequestMapping(value="/editMode",method = RequestMethod.GET )
+	public String editMode(Model model, Authentication authentication) {
+		
+		model.addAttribute("editMode","");
 
+		
+		return ViewGameSession(model,authentication);
+	}
+
+	@RequestMapping(value="/saveLore",method = RequestMethod.GET )
+	public String saveLore(Model model, Authentication authentication, @RequestParam String newlore) {
+		
+		User user = userRepository.findUser(authentication.getName());
+		
+		GameSession gamesession = user.getGameSession();
+		
+		gamesession.setLore(newlore);
+		
+		gameSessionRepository.save(gamesession);
+		
+		
+		
+		return ViewGameSession(model,authentication);
+	}
  
 	@ExceptionHandler(Exception.class)
 	public String handleAllException(Exception ex) {
