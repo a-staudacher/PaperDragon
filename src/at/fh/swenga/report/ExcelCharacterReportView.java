@@ -111,7 +111,7 @@ public class ExcelCharacterReportView extends AbstractXlsxView {
 		// ------------------------------------------------------
 		
 		Cell cella0 = headerRow2.createCell(0);
-		cella0.setCellValue("Name");
+		cella0.setCellValue("Item Name");
 		cella0.setCellStyle(style);
 		
 		Cell cella1 = headerRow2.createCell(1);

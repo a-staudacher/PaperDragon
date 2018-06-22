@@ -174,6 +174,16 @@ public class CharacterController {
 		return contacts(model,authentication);
 	}
 	
+	@Secured("ROLE_ADMIN")
+	@RequestMapping(value = "/resetPassUser")
+	public String resetPassUser(Model model, Authentication authentication, @RequestParam String name) {
+		User user = userRepository.findUser(name);
+		user.setPassword(user.getUserName());
+		user.encryptPassword();
+		userRepository.save(user);
+		
+		return contacts(model,authentication);
+	}
 	
 	@RequestMapping(value = "/removeFriend")
 	public String removeFriend(Model model, Authentication authentication, @RequestParam String name) {

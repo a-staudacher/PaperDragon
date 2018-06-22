@@ -31,7 +31,6 @@ public class ItemBaseModel implements java.io.Serializable {
 	@Column(nullable = false, length = 100)
 	private String text;
 	
-	//todo: in documentation er diagramm
 	@OneToOne(cascade = CascadeType.ALL)
 	private DocumentModel picture;
 	

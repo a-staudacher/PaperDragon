@@ -103,8 +103,6 @@ public class MainController {
 
 		User admin = userRepository.findUser("admin");
 		User user = userRepository.findUser("user");
-		DocumentModel doc = new DocumentModel();
-		
 		
 		
 		GameSession chat1 = new GameSession("Epic", "Great", null);
@@ -147,11 +145,11 @@ public class MainController {
 		
 		DocumentModel document = new DocumentModel();
 
-		
+		if(file.getContentType()!=null && file.getContentType().split("/")[0].equals("image"))
+		{
 			try {
 				document.setContent(file.getBytes());
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			document.setContentType(file.getContentType());
@@ -160,15 +158,15 @@ public class MainController {
 			document.setName(file.getName());
 			
 			DocumentModel old = documentModelRepository.findByUserUserName(username);
-			//todo: if(document.getContentType()) is not picture dont upload
 			if(old!=null)
 				documentModelRepository.delete(old);
 			user.setPicture(document);
 			
 			
 			
-		documentModelRepository.save(document);
-		userRepository.save(user);
+			documentModelRepository.save(document);
+			userRepository.save(user);
+		}
 		return index(model,authentication);
 	}
 	

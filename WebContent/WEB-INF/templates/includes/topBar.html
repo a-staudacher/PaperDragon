@@ -1,6 +1,6 @@
-<div th:fragment="topBarPage">    
+<div th:fragment="topBarPage" style="pointer-events: none;">    
            
-        <a href="index.html"><img src="resource/images/img-01.png" alt="IMG" height="166" width="250"></a>
+        <a style="pointer-events: auto;" href="index.html"><img src="resource/images/img-01.png" alt="IMG" height="166" width="250"></a>
         
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
@@ -16,18 +16,11 @@
             
             
 
-            <ul class="nav navbar-top-links navbar-right">
-     
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i>
-                    </a> 
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+            <ul class="nav navbar-top-links navbar-right" style="margin-right:10px; margin-top:12px;">
+   
+                    <form action="logout" method="post">
+                    	<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                        <button style="pointer-events: auto; float:right"><i class="fa fa-sign-out fa-fw"></i> Logout</button>
+                    </form> 
                     </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
-            </ul>
-            <!-- /.navbar-top-links -->
 </div>

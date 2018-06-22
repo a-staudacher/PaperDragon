@@ -119,10 +119,11 @@ public class GameController {
 		User user = userRepository.findUser(username);
 		DocumentModel document = new DocumentModel();
 		
+		if(file.getContentType()!=null && file.getContentType().split("/")[0].equals("image"))
+		{
 			try {
 				document.setContent(file.getBytes());
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			document.setContentType(file.getContentType());
@@ -131,15 +132,15 @@ public class GameController {
 			document.setName(file.getName());
 			
 			DocumentModel old = documentModelRepository.findByGameSessionName(user.getGameSession().getName());
-			//todo: if(document.getContentType()) is not picture dont upload
 			if(old!=null)
 				documentModelRepository.delete(old);
 			user.getGameSession().setPicture(document);
 			
 			
 			
-		documentModelRepository.save(document);
-		gameSessionRepository.save(user.getGameSession());
+			documentModelRepository.save(document);
+			gameSessionRepository.save(user.getGameSession());
+		}
 		return ViewGameSession(model,authentication);
 	}
 	

@@ -11,15 +11,14 @@
 	<span
 		th:text="${#request.getAttribute('javax.servlet.error.exception')}"></span>
 	<br /> Status Code:
-	<span
-		th:text="${#request.getAttribute('javax.servlet.error.status_code')}"></span>
-	<br /> Request-URI:
-	<span
-		th:text="${#request.getAttribute('javax.servlet.error.request_uri')}"></span>
+	<span th:text="${#request.getAttribute('javax.servlet.error.status_code')}"></span>
+	<a href="index.html"><br>
+	<button>Back</button></a>
+	<!-- <br /> Request-URI:
+	<span th:text="${#request.getAttribute('javax.servlet.error.request_uri')}"></span>
 	<br /> Servlet Name:
-	<span
-		th:text="${#request.getAttribute('javax.servlet.error.servlet_name')}"></span>
+	<span th:text="${#request.getAttribute('javax.servlet.error.servlet_name')}"></span>
 	<br />
-	<a href="./">back</a>
+	<a href="./">back</a> -->
 </body>
 </html>
