@@ -322,6 +322,41 @@ public class ItemController {
 		
 		character = characterRepository.findByUserUserName(userName);
 		
+		ItemModel helmet = null;
+		ItemModel chestArmor = null;
+		ItemModel armArmor = null;
+		ItemModel legArmor = null;
+		ItemModel weapon = null;
+		
+		for(ItemModel item : itemModelRepository.findByEquippedAndCharacterUserUserName(true,userName))
+		{
+			switch(item.getItemBase().getItemType().getType())
+			{
+				case "helmet": 
+					helmet = item;
+					break;
+				case "chestArmor": 
+					chestArmor = item;
+					break;
+				case "armArmor": 
+					armArmor = item;
+					break;
+				case "legArmor": 
+					legArmor = item;
+					break;
+				case "weapon": 
+					weapon = item;
+					break;	
+			}
+		}
+		
+		model.addAttribute("helmet",helmet);
+		model.addAttribute("chestArmor",chestArmor);
+		model.addAttribute("armArmor",armArmor);
+		model.addAttribute("legArmor",legArmor);
+		model.addAttribute("weapon",weapon);
+		
+		
 		model.addAttribute("user",userRepository.findUser(userName));
 		model.addAttribute("character",character);
 		

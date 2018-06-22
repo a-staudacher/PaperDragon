@@ -16,6 +16,9 @@
 <link href="resource/css/bootstrap.min.css" rel="stylesheet">
 <link href="resource/font-awesome/css/font-awesome.css" rel="stylesheet">
 
+<link rel="stylesheet" type="text/css"
+href="resource/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
 <!-- Page-Level Plugin CSS - Dashboard -->
 <link href="resource/css/plugins/morris/morris-0.4.3.min.css"
 	rel="stylesheet">
@@ -144,7 +147,10 @@
 									Character Name: <span th:text="${user.character.name}"></span>
 								</h4>
 								</span> <span><p>
-										Gender: <span th:text="${user.character.gender}"></span>
+										Gender: &nbsp&nbsp <span>
+										<span style="font-size: 20pt"><i th:class="${user.character.gender == 'Female'} ? 'fa fa-venus fa-lg' : 'fa fa-mars fa-lg'" aria-hidden="true"></i></span>
+										
+										</span>
 									</p></span>
 							</div>
 							<div class="clearfix"></div>
