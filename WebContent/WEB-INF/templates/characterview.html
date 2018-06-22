@@ -51,7 +51,7 @@
 		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1 class="page-header">Character</h1>
+					<h1 class="page-header">Character of <span th:text="${user.userName}"></span></h1>
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>
@@ -65,9 +65,13 @@
 							<div class="flot-chart">
 								<div class="flot-chart-content" id="flot-line-chart">
 
-									<div class="col-sm-6"></div>
-
-
+									
+									
+									
+									<div align="center">
+									<input type="image"	th:src="${user.picture} ? @{'data:image/jpeg;base64,'+*{T(org.springframework.util.Base64Utils).encodeToString(user.picture.content)}} : 'https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg'"
+									id="profile-image1" class="img-circle img-responsive" style="width: 200px"> 
+									</div>
 									<div class="panel-body">
 
 										<div class="col-lg-4">
@@ -157,9 +161,6 @@
 
 								<div role="main">
 
-
-									<!-- include the Nav bar fragment-->
-									<nav th:replace="~{includes/searchNav :: search}"></nav>
 
 
 									<div class="row">
