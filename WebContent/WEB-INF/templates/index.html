@@ -371,7 +371,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr th:each="line : ${gameSession.chatLines}">
+									<tr th:each="line : ${chatLines}">
 										<td><a th:text="${line.user.userName} +':'" th:href="'characterview.html?'+'name='+${line.user.userName}"></a></td>
 										<td th:text="${line.text}">Nachricht</td>
 										<td th:text="${line.date}">Zeit</td>

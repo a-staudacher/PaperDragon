@@ -1,7 +1,10 @@
 package at.fh.swenga.controller;
  
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -15,11 +18,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import at.fh.swenga.dao.BlockModelRepository;
 import at.fh.swenga.dao.CharacterRepository;
 import at.fh.swenga.dao.ChatRepository;
 import at.fh.swenga.dao.DocumentModelRepository;
 import at.fh.swenga.dao.GameSessionRepository;
 import at.fh.swenga.dao.UserRepository;
+import at.fh.swenga.model.BlockModel;
 import at.fh.swenga.model.Chat;
 import at.fh.swenga.model.DocumentModel;
 import at.fh.swenga.model.GameSession;
@@ -38,6 +43,9 @@ public class MainController {
 	CharacterRepository characterRepository;
 	
 	@Autowired
+	BlockModelRepository blockModelRepository;
+	
+	@Autowired
 	ChatRepository chatRepository;
 	
 	@Autowired
@@ -47,12 +55,33 @@ public class MainController {
 	public String index(Model model, Authentication authentication) {
 		String userName = authentication.getName();
 		User user = userRepository.findUser(userName);
-		
-		
+		ArrayList<Chat> lines =  new ArrayList<Chat>();
+		if(user.getGameSession()!=null)
+		{
+			List<Chat> chatLines = chatRepository.findByGameSessionName(user.getGameSession().getName());
+			List<BlockModel> blocks = blockModelRepository.findByUserUserName(userName);
+
+			for(Chat line : chatLines)
+			{
+				boolean notFromBlocked = true;
+				for(BlockModel blocked : blocks)
+				{
+					
+					if(line.getUser().getUserName().equals(blocked.getBlockedUser().getUserName()))
+					{
+						notFromBlocked = false;
+					}
+				}
+				if(notFromBlocked)
+					lines.add(line);
+			}
+			model.addAttribute("chatLines",lines);
+		}
 		
 		model.addAttribute("user",user);
 		model.addAttribute("character",user.getCharacter());
 		model.addAttribute("gameSession",user.getGameSession());
+		
 		return "index";
 	}
 	
